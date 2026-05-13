@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --color-brand-navy: #000666;
+  --color-brand-green: #006e1c;
+  --color-brand-muted: #767683;
+  --color-brand-slate: #475569;
+  --color-brand-surface: #f2f4f8;
+  --color-brand-icon-bg: #eceef2;
+  --color-brand-border: #c6c5d4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-brand-navy);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-brand-green) 28%, transparent);
+  color: var(--color-brand-navy);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-green) 70%, white);
+  outline-offset: 2px;
+}
+
+/* Premium decor — subtle motion, GPU-friendly */
+@keyframes decor-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes decor-float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes decor-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@layer utilities {
+  .animate-decor-float {
+    animation: decor-float 11s ease-in-out infinite;
+  }
+  .animate-decor-float-slow {
+    animation: decor-float-slow 15s ease-in-out infinite;
+  }
+  .animate-decor-sway {
+    animation: decor-sway 9s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-decor-float,
+  .animate-decor-float-slow,
+  .animate-decor-sway {
+    animation: none;
+  }
+}
