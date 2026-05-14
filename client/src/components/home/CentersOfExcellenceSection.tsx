@@ -78,28 +78,36 @@ export function CentersOfExcellenceSection() {
 
           <div role="tabpanel" className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
             {tab === 'technologies'
-              ? technologies.slice(0, 6).map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/technologies/${item.slug}`}
-                    className="group flex h-full min-h-0 flex-col rounded-[1.75rem] border border-black/[0.04] bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-green/10 hover:shadow-xl sm:rounded-[2rem] sm:p-8"
-                  >
-                    <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-icon-bg to-brand-surface ring-1 ring-black/[0.03] sm:mb-6 sm:size-16">
-                      <svg className="size-8 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                        <circle cx="12" cy="12" r="3" />
-                      </svg>
-                    </div>
-                    <h3 className="font-heading text-lg font-bold text-brand-navy group-hover:text-brand-green sm:text-xl">{item.name}</h3>
-                    <p className="mt-2 line-clamp-3 overflow-hidden text-sm leading-relaxed text-brand-muted sm:text-[0.9375rem]">
-                      {item.shortDescription}
-                    </p>
-                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-brand-green transition group-hover:gap-2">
-                      View technology
-                      <span className="size-3.5">→</span>
-                    </span>
-                  </Link>
-                ))
+             ? technologies.slice(0, 6).map((item) => {
+    
+    return (
+      <Link
+        key={item.slug}
+        to={`/technologies/${item.slug}`}
+        className="group flex h-full min-h-0 flex-col rounded-[1.75rem] border border-black/[0.04] bg-white p-6 shadow-sm transition duration-300"
+      >
+       <div className="mb-5 flex h-24 w-24 items-center justify-center rounded-3xl bg-white shadow-sm ring-1 ring-[#ececec] sm:h-28 sm:w-28">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+          />
+        </div>
+
+        <h3 className="font-heading text-lg font-bold text-brand-navy group-hover:text-brand-green sm:text-xl">
+          {item.name}
+        </h3>
+
+        <p className="mt-2 line-clamp-3 overflow-hidden text-sm leading-relaxed text-brand-muted sm:text-[0.9375rem]">
+          {item.shortDescription}
+        </p>
+
+        <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-brand-green">
+          View technology →
+        </span>
+      </Link>
+    )
+  })
               : tab === 'surgeries'
                 ? surgeries.slice(0, 6).map((item) => (
                     <Link
@@ -107,12 +115,13 @@ export function CentersOfExcellenceSection() {
                       to={`/surgeries/${item.slug}`}
                       className="group flex h-full min-h-0 flex-col rounded-[1.75rem] border border-black/[0.04] bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-green/10 hover:shadow-xl sm:rounded-[2rem] sm:p-8"
                     >
-                      <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-icon-bg to-brand-surface ring-1 ring-black/[0.03] sm:mb-6 sm:size-16">
-                        <svg className="size-8 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                          <path d="M14.5 4.5L19 9l-8 8-4 1 1-4 8-8z" strokeLinecap="round" strokeLinejoin="round" />
-                          <path d="M12 20h9" strokeLinecap="round" />
-                        </svg>
-                      </div>
+                     <div className="mb-5 flex h-24 w-24 items-center justify-center rounded-3xl bg-white shadow-sm ring-1 ring-[#ececec] sm:mb-6 sm:h-28 sm:w-28">
+  <img
+    src={item.image}
+    alt={item.name}
+    className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+  />
+</div>
                       <h3 className="font-heading text-lg font-bold text-brand-navy group-hover:text-brand-green sm:text-xl">{item.name}</h3>
                       <p className="mt-2 line-clamp-3 overflow-hidden text-sm leading-relaxed text-brand-muted sm:text-[0.9375rem]">
                         {item.shortDescription}
@@ -130,10 +139,15 @@ export function CentersOfExcellenceSection() {
                         to={`/transplants/${item.slug}`}
                         className="group flex h-full min-h-0 flex-col rounded-[1.75rem] border border-black/[0.04] bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-green/10 hover:shadow-xl sm:rounded-[2rem] sm:p-8"
                       >
-                        <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-icon-bg to-brand-surface ring-1 ring-black/[0.03] sm:mb-6 sm:size-16">
-                          <svg className="size-8 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                        <div className="mb-5 flex h-24 w-24 items-center justify-center rounded-3xl bg-white shadow-sm ring-1 ring-[#ececec] sm:mb-6 sm:h-28 sm:w-28">
+                          {/* <svg className="size-8 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
                             <path d="M12 20s-7-4.5-9-9a5.2 5.2 0 019-5 5.2 5.2 0 019 5c-2 4.5-9 9-9 9z" />
-                          </svg>
+                          </svg> */}
+                          <img
+  src={item.image}
+  alt={item.name}
+ className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+/>
                         </div>
                         <h3 className="font-heading text-lg font-bold text-brand-navy group-hover:text-brand-green sm:text-xl">{item.name}</h3>
                         <p className="mt-2 line-clamp-3 overflow-hidden text-sm leading-relaxed text-brand-muted sm:text-[0.9375rem]">

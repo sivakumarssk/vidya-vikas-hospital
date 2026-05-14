@@ -1,8 +1,15 @@
 import scrapedData from './surgeries-scraped.json'
 
+import acl from '../assets/surgeries/ACL.png'
+import gastro from '../assets/surgeries/gastro.png'
+import heart from '../assets/surgeries/heart.png'
+import knee from '../assets/surgeries/knee.png'
+import tendon from '../assets/surgeries/tendon.png'
+
 export type SurgeryItem = {
   name: string
   slug: string
+  image: string
   shortDescription: string
   overview: string[]
   keyFeatures: string[]
@@ -38,7 +45,19 @@ const defaultFAQs = [
 ] as const
 
 const pages = ((scrapedData as { pages?: ScrapedPage[] }).pages ?? []).filter((p) => p.slug && !p.error)
+const SURGERY_IMAGES: Record<string, string> = {
+  'achilles-tendon-repair': tendon,
 
+  adhesiolysis: gastro,
+
+  'acl-surgery': acl,
+
+  'crt-p': heart,
+
+  'endoscopic-retrograde-cholangiopancreatography-ercp': gastro,
+
+  'open-reduction-and-internal-fixation-orif': knee,
+}
 export const surgeries: SurgeryItem[] = pages.map((page) => buildSurgery(page)).sort((a, b) => a.name.localeCompare(b.name))
 
 export function getSurgeryBySlug(slug: string | undefined) {
@@ -47,6 +66,7 @@ export function getSurgeryBySlug(slug: string | undefined) {
 }
 
 function buildSurgery(page: ScrapedPage): SurgeryItem {
+ // console.log(page.slug)
   const name = normalizeText(prettifyTitle(page.title))
   const titleNorm = normalizeText(clean(page.title))
   const overview = sanitizeParagraphs(page.overview, titleNorm)
@@ -61,6 +81,7 @@ function buildSurgery(page: ScrapedPage): SurgeryItem {
   return {
     name,
     slug: page.slug,
+    image: SURGERY_IMAGES[page.slug] || knee,
     shortDescription,
     overview:
       overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} and recovery expectations at Vidya Vikash Hospital.`)],

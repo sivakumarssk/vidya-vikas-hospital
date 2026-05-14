@@ -1,13 +1,21 @@
 import scrapedData from './technologies-scraped.json'
-
+import robot from '../assets/robot.png'
+import mri from '../assets/mri.png'
+import brain from '../assets/brain.png'
+import heart from '../assets/heart.png'
+import xray from '../assets/xray.png'
+import baby from '../assets/baby.png'
+import cancer from '../assets/cancer.png'
 export type TechnologyItem = {
   name: string
   slug: string
+  image: string
   shortDescription: string
   overview: string[]
   keyFeatures: string[]
   faqs: { q: string; a: string }[]
 }
+
 
 type ScrapedPage = {
   sourceUrl: string
@@ -39,16 +47,58 @@ const defaultFAQs = [
 
 const pages = ((scrapedData as { pages?: ScrapedPage[] }).pages ?? []).filter((p) => p.slug && !p.error)
 
-export const technologies: TechnologyItem[] = pages
-  .map((page) => buildTechnology(page))
-  .sort((a, b) => a.name.localeCompare(b.name))
+const technologyImages: Record<string, string> = {
+  '3-0-tesla-mri': mri,
 
-export function getTechnologyBySlug(slug: string | undefined) {
-  if (!slug) return undefined
-  return technologies.find((t) => t.slug === slug)
+  'advanced-nicus-picus': baby,
+
+  'biplane-cath-lab': heart,
+
+  'car-t-cell-therapy-in-india': cancer,
+
+  'cone-beam-computed-tomography-scan': xray,
+
+  cryoablation: xray,
+
+  'digital-subtraction-angiography': xray,
+
+  'dual-source-computed-tomography': xray,
+
+  'extracorporeal-membrane-oxygenation': heart,
+
+  'fetal-mri': baby,
+
+  'fetal-neurosonography': brain,
+
+  fluoroscopy: xray,
+
+  'high-dose-rate-hdr-brachytherapy': heart,
+
+  'intraoperative-neuromonitoring': brain,
+
+  'intravascular-ultrasound-ivus-or-ultrasonography': xray,
+
+  mammography: xray,
+
+  'mr-linac': mri,
+
+  'optical-coherence-tomography-test': xray,
+
+  'robotic-da-vinci-xi': robot,
+
+  'rosa-one-brain': brain,
+
+  'ultra-low-contrast-angiography': heart,
+
+  videostroboscopy: xray,
+
+  'yag-pi-peripheral-iridotomy-laser': cancer,
 }
 
+//const defaultTechnologyImage = '/assets/technologies/default.png'
+
 function buildTechnology(page: ScrapedPage): TechnologyItem {
+  //console.log(page.slug)
   const name = normalizeText(shortenTitle(page.title))
   const overview = sanitizeParagraphs(page.overview)
   const keyFeatures = sanitizeFeatures(page.highlights, overview)
@@ -56,15 +106,29 @@ function buildTechnology(page: ScrapedPage): TechnologyItem {
   const shortDescription =
     overview[0] ??
     `Advanced clinical capability at Vidya Vikash Hospital — ${name} with specialist-led protocols and modern infrastructure.`
-
+//console.log(page.slug, technologyImages[page.slug])
   return {
-    name,
-    slug: page.slug,
-    shortDescription: normalizeText(shortDescription),
-    overview: overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} at Vidya Vikash Hospital.`)],
-    keyFeatures: keyFeatures.length > 0 ? keyFeatures : fallbackFeatures(name),
-    faqs,
-  }
+  name,
+  slug: page.slug,
+  image: technologyImages[page.slug] || robot,
+  shortDescription: normalizeText(shortDescription),
+  overview:
+    overview.length > 0
+      ? overview
+      : [normalizeText(`Learn more about ${name} at Vidya Vikash Hospital.`)],
+  keyFeatures:
+    keyFeatures.length > 0 ? keyFeatures : fallbackFeatures(name),
+  faqs,
+}
+}
+export const technologies: TechnologyItem[] = pages
+  .map((page) => buildTechnology(page))
+  .sort((a, b) => a.name.localeCompare(b.name))
+
+export function getTechnologyBySlug(slug: string | undefined) {
+  if (!slug) return undefined
+
+  return technologies.find((t) => t.slug === slug)
 }
 
 function shortenTitle(title: string) {
@@ -167,3 +231,7 @@ function fallbackFeatures(name: string) {
     'Multidisciplinary review where clinically appropriate.',
   ].map(normalizeText)
 }
+
+
+
+

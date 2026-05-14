@@ -1,4 +1,10 @@
 import { specialities as allSpecialities } from './specialities'
+import cardiology from '../assets/specialities/cardiology.png'
+import orthopedics from '../assets/specialities/orthopedics.png'
+import oncology from '../assets/specialities/oncology.png'
+import gastro from '../assets/specialities/gastro.png'
+import gynac from '../assets/specialities/gynac.png'
+//import defaultImage from '../assets/specialities/default.png'
 
 export type NavItem = {
   label: string
@@ -34,7 +40,8 @@ export const heroLocations = ['Sambalpur', 'Kakinada', 'Berhampur', 'Jharsuguda'
 export type ExcellenceCard = {
   title: string
   description: string
-  icon: string
+  //icon: string
+  image: string
   slug: string
 }
 
@@ -48,19 +55,17 @@ export const excellenceTabs = [
 const featuredSpecialitySlugs = [
   'cardiology',
   'orthopedics',
-  'neurology',
   'oncology',
   'gastroenterology',
   'gynaecology-and-obstetrics',
 ] as const
 
-const specialityIcons: Record<(typeof featuredSpecialitySlugs)[number], string> = {
-  cardiology: 'heart',
-  orthopedics: 'bone',
-  neurology: 'brain',
-  oncology: 'shield',
-  gastroenterology: 'stomach',
-  'gynaecology-and-obstetrics': 'women',
+const specialityImages: Record<(typeof featuredSpecialitySlugs)[number], string> = {
+  cardiology,
+  orthopedics,
+  oncology,
+  gastroenterology: gastro,
+  'gynaecology-and-obstetrics': gynac,
 }
 
 export const excellenceCards: ExcellenceCard[] = featuredSpecialitySlugs
@@ -71,7 +76,7 @@ export const excellenceCards: ExcellenceCard[] = featuredSpecialitySlugs
     return {
       title: speciality.name,
       description: speciality.shortDescription,
-      icon: specialityIcons[slug],
+     image: specialityImages[slug],
       slug: speciality.slug,
     }
   })

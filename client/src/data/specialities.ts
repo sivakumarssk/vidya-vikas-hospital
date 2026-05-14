@@ -1,8 +1,23 @@
 import scrapedData from './specialities-scraped.json'
+import cardiology from '../assets/specialities/cardiology.png'
+import orthopedics from '../assets/specialities/orthopedics.png'
+import oncology from '../assets/specialities/oncology.png'
+import gastro from '../assets/specialities/gastro.png'
+import gynac from '../assets/specialities/gynac.png'
+import defaultImage from '../assets/specialities/default.png'
+
+const specialityImages: Record<string, string> = {
+  cardiology: cardiology,
+  orthopedics: orthopedics,
+  oncology: oncology,
+  gastroenterology: gastro,
+  'gynaecology-obstetrics': gynac,
+}
 
 export type SpecialityItem = {
   name: string
   slug: string
+  image: string
   shortDescription: string
   overview: string[]
   conditions: string[]
@@ -164,6 +179,8 @@ function buildSpeciality(name: string): SpecialityItem {
     return {
       name,
       slug,
+      //image: specialityImages[page.slug] || defaultImage,
+      image: specialityImages[slug] || defaultImage,
       shortDescription,
       overview,
       conditions: highlights.slice(0, 4).length > 0 ? highlights.slice(0, 4) : fallbackConditions(name),
@@ -177,6 +194,7 @@ function buildSpeciality(name: string): SpecialityItem {
     return {
       name,
       slug,
+       image: specialityImages[slug] || defaultImage,
       shortDescription:
         'Dedicated sports medicine and arthroscopy care for athletes and active individuals, with minimally invasive treatment and focused rehabilitation.',
       overview: [
@@ -225,6 +243,7 @@ function buildSpeciality(name: string): SpecialityItem {
   return {
     name,
     slug,
+     image: specialityImages[slug] || defaultImage,
     shortDescription: `Comprehensive ${lower} services at Vidya Vikash Hospital with evidence-based care, advanced diagnostics, and multidisciplinary specialists.`,
     overview: [
       `The ${name} department at Vidya Vikash Hospital provides specialist-led diagnosis, treatment, and follow-up for acute and chronic clinical needs.`,

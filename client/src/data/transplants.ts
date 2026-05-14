@@ -1,8 +1,14 @@
 import scrapedData from './transplants-scraped.json'
-
+import heartTransplant from '../assets/transplants/heartTransplant.png'
+import lungTransplant from '../assets/transplants/lungTransplant.png'
+import kidneyTransplant from '../assets/transplants/kidneyTranplant.png'
+import liverTransplant from '../assets/transplants/liverTranplant.png'
+import boneMarrow from '../assets/transplants/bonemarrowTransplant.png'
+import pancreas from '../assets/transplants/pancreasTranplant.png'
 export type TransplantItem = {
   name: string
   slug: string
+  image: string
   shortDescription: string
   overview: string[]
   keyFeatures: string[]
@@ -29,13 +35,18 @@ const PROGRAM_ORDER = [
   'pancreas-transplantation',
 ] as const
 
-const PROGRAM_NAMES: Record<(typeof PROGRAM_ORDER)[number], string> = {
-  'heart-transplant': 'Heart transplant',
-  'lung-transplant': 'Lung transplant',
-  'kidney-transplant': 'Kidney transplant',
-  'liver-transplant': 'Liver transplant',
-  'hematology-bmt': 'Hematology & bone marrow transplant',
-  'pancreas-transplantation': 'Pancreas transplantation',
+const PROGRAM_IMAGES: Record<string, string> = {
+  'heart-transplant': heartTransplant,
+
+  'lung-transplant': lungTransplant,
+
+  'kidney-transplant': kidneyTransplant,
+
+  'liver-transplant': liverTransplant,
+
+  'hematology-bmt': boneMarrow,
+
+  'pancreas-transplantation': pancreas,
 }
 
 const brandRules: Array<[RegExp, string]> = [
@@ -79,8 +90,9 @@ export function getTransplantBySlug(slug: string | undefined) {
 }
 
 function buildTransplant(page: ScrapedPage): TransplantItem {
+    //console.log(page.slug)
   const name =
-    (PROGRAM_NAMES as Record<string, string>)[page.slug] ?? normalizeText(clean(page.title))
+  normalizeText(clean(page.title))
   const titleNorm = normalizeText(clean(page.title))
   const overview = sanitizeParagraphs(page.overview, titleNorm, page.slug)
   const keyFeatures = sanitizeFeatures(page.highlights, overview, page.slug)
@@ -90,10 +102,12 @@ function buildTransplant(page: ScrapedPage): TransplantItem {
     normalizeText(
       `Comprehensive ${name.toLowerCase()} care at Vidya Vikash Hospital with transplant multidisciplinary teams and modern perioperative support.`,
     )
+   // console.log(page.slug)
 
   return {
     name,
     slug: page.slug,
+    image: PROGRAM_IMAGES[page.slug as keyof typeof PROGRAM_IMAGES],
     shortDescription,
     overview:
       overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} at Vidya Vikash Hospital.`)],
