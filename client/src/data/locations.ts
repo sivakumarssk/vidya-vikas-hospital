@@ -1,3 +1,4 @@
+
 export type LocationItem = {
   slug: string
   name: string
@@ -21,7 +22,7 @@ export const locations: LocationItem[] = [
     email: 'Sambalpur@vaidyavikash.com',
     timings: 'Mon-Sat: 8:00 AM - 8:00 PM',
     emergency: '24/7 Emergency & Trauma Support',
-    heroImage: 'https://images.unsplash.com/photo-1586773860418-d372322d81be?w=1400&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhvc3BpdGFsfGVufDB8fDB8fHww',
     about: [
       'Sambalpur centre is our tertiary-care flagship with multidisciplinary specialists, advanced diagnostics, and high-acuity emergency pathways.',
       'The campus supports coordinated outpatient, daycare, and inpatient treatment plans with dedicated nursing and rehabilitation teams.',

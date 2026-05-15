@@ -14,6 +14,8 @@ import aboutHeroImage from '../assets/figma/about-hero-image.png'
 import aboutStoryImage from '../assets/figma/about-story-image.png'
 import contactMap from '../assets/figma/contact-map.svg'
 import appointmentHero from '../assets/figma/appointment-hero.svg'
+import chairmansImage from '../assets/figma/chairmansImage.png'
+import overview from '../assets/figma/overview.png'
 
 export const siteAssets = {
   logo,
@@ -34,4 +36,6 @@ export const siteAssets = {
   aboutStoryImage,
   contactMap,
   appointmentHero,
+chairmansImage,
+  overview
 } as const

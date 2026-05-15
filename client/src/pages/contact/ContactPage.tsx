@@ -56,15 +56,13 @@ export function ContactPage() {
               </div>
 
               <div className="relative overflow-hidden rounded-3xl">
-                <img
+                {/* <img
                   src={primaryLocation.heroImage}
                   alt={`${primaryLocation.name} hospital location`}
                   className="h-[280px] w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/45 to-transparent" />
-                <button className="absolute left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-navy shadow-lg sm:w-auto sm:max-w-none sm:text-base">
-                  Open in Google Maps
-                </button>
+                /> */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/45 to-transparent" />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190789.843534339!2d78.98592469852862!3d19.30187898868091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a21165bec27459b%3A0x2fd8f6205a4286f0!2sVaidya%20Vikash%20Hospitals!5e0!3m2!1sen!2sin!4v1778840214211!5m2!1sen!2sin" width="600" height="450" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
 

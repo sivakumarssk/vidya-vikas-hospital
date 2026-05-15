@@ -1,7 +1,6 @@
 import { Container } from '../../components/ui/Container'
 import { PageScaffold } from '../../components/layout/PageScaffold'
 import { siteAssets } from '../../constants/site-assets'
-
 const stats = [
   ['250k+', 'Patients Treated'],
   ['120+', 'Expert Doctors'],
@@ -59,6 +58,70 @@ export function AboutPage() {
       </section>
 
       <section className="py-14 sm:py-16">
+  <Container>
+    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+
+      <img
+        src={siteAssets.chairmansImage}
+        alt="Chairman"
+        className="w-full rounded-3xl object-cover shadow-xl"
+      />
+
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">
+          Leadership
+        </p>
+
+        <h3 className="mt-3 font-heading text-2xl font-bold text-brand-navy sm:text-3xl">
+          Chairman's Message
+        </h3>
+
+        <h6 className="mt-5 text-lg font-bold leading-relaxed text-brand-muted sm:text-xl">
+          “Nothing is important to us today than helping India become a country where advanced healthcare is available for everyone and not just a privileged few. We will strive to make Vikash a benchmark in the region.”
+        </h6>
+
+        <h6 className="mt-8 font-heading text-xl font-bold text-brand-navy sm:text-2xl">
+          G. Bhaskar Rao
+        </h6>
+
+        <p className="mt-2 text-base text-brand-muted">
+          Chairman - Vikash Hospital Sambalpur and Vidya Vikash Group
+        </p>
+      </div>
+
+    </div>
+  </Container>
+</section>
+
+<section className="py-14 sm:py-16">
+  <Container>
+    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">
+          About Us
+        </p>
+
+        <h2 className="mt-3 font-heading text-2xl font-bold text-brand-navy sm:text-3xl">
+          Overview
+        </h2>
+
+        <p className="mt-5 text-base leading-relaxed text-brand-muted">
+          Vikash Hospitals, Sambalpur has become a hallmark of trust in medical & surgical specialties across the western part of Odisha. The hospital is promoted with a vision to create a world-class medical facility, where patients are treated with unmatched compassion and care.
+        </p>
+      </div>
+
+      <img
+        src={siteAssets.overview}
+        alt="Overview"
+        className="w-full rounded-3xl object-cover shadow-xl"
+      />
+
+    </div>
+  </Container>
+</section>
+
+<section className="py-14 sm:py-16">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <img src={siteAssets.aboutStoryImage} alt="Doctors team" className="w-full rounded-3xl object-cover shadow-xl" />
@@ -83,6 +146,9 @@ export function AboutPage() {
           </div>
         </Container>
       </section>
+
+
+
     </PageScaffold>
   )
 }
