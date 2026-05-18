@@ -2,9 +2,9 @@ import scrapedData from './transplants-scraped.json'
 import heartTransplant from '../assets/transplants/heartTransplant.png'
 import lungTransplant from '../assets/transplants/lungTransplant.png'
 import kidneyTransplant from '../assets/transplants/kidneyTranplant.png'
-import liverTransplant from '../assets/transplants/liverTranplant.png'
+import liverTransplant from '../assets/transplants/liverTransplant.png'
 import boneMarrow from '../assets/transplants/bonemarrowTransplant.png'
-import pancreas from '../assets/transplants/pancreasTranplant.png'
+import pancreas from '../assets/transplants/pancreasTransplant.png'
 export type TransplantItem = {
   name: string
   slug: string
