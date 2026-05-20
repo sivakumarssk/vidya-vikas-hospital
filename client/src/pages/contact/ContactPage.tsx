@@ -23,9 +23,9 @@ export function ContactPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-12">
-            <div className="space-y-6 lg:col-span-5">
-              <div className="rounded-3xl bg-brand-surface p-8">
+<div className="mt-12 grid gap-8 lg:grid-cols-12 lg:items-start">            
+  <div className="space-y-6 lg:col-span-5">
+              <div className="rounded-3xl bg-brand-surface p-5 sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-navy/60">Contact Channels</p>
                 <div className="mt-6 space-y-6 text-brand-navy">
                   <div>
@@ -62,11 +62,13 @@ export function ContactPage() {
                   className="h-[280px] w-full object-cover"
                 /> */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/45 to-transparent" />
+                <div className="w-full overflow-hidden rounded-3xl">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190789.843534339!2d78.98592469852862!3d19.30187898868091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a21165bec27459b%3A0x2fd8f6205a4286f0!2sVaidya%20Vikash%20Hospitals!5e0!3m2!1sen!2sin!4v1778840214211!5m2!1sen!2sin" width="600" height="450" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              </div>
               </div>
             </div>
 
-            <div className="rounded-3xl bg-white p-8 shadow-lg lg:col-span-7">
+            <div className="rounded-3xl bg-white p-5 sm:p-8 shadow-lg lg:col-span-7">
               <form className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <label className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-navy/70">

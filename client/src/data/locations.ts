@@ -17,9 +17,9 @@ export const locations: LocationItem[] = [
   {
     slug: 'Sambalpur',
     name: 'Sambalpur',
-    address: '6-3-1106/1A, Raj Bhavan Road, Sambalpur, Hyderabad',
+    address: ' D2/8, Industrial Estate, Panchgachhia, Bareipali, Sambalpur Near Land Mark – Near Central Honda, Pincode - 768006 (Odisha)',
     phone: '+91 40 4567 4567',
-    email: 'Sambalpur@vaidyavikash.com',
+    email: 'sbp@vikashhospitals.com',
     timings: 'Mon-Sat: 8:00 AM - 8:00 PM',
     emergency: '24/7 Emergency & Trauma Support',
     heroImage: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhvc3BpdGFsfGVufDB8fDB8fHww',

@@ -1,6 +1,7 @@
 import { Container } from '../../components/ui/Container'
 import { PageScaffold } from '../../components/layout/PageScaffold'
 import { siteAssets } from '../../constants/site-assets'
+import {useState } from "react";
 const stats = [
   ['250k+', 'Patients Treated'],
   ['120+', 'Expert Doctors'],
@@ -9,6 +10,11 @@ const stats = [
 ] as const
 
 export function AboutPage() {
+
+  const [activeSection, setActiveSection] =
+  useState('overview')
+
+
   return (
     <PageScaffold>
       <section className="bg-brand-surface py-14 sm:py-16 lg:py-20">
@@ -57,9 +63,48 @@ export function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-16">
+      <section className="-mt-1 pt-10 pb-10 relative z-10 ">
   <Container>
-    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+
+    <div className="flex flex-wrap gap-4 justify-start">
+
+      <button
+        onClick={() =>
+          setActiveSection('overview')
+        }
+        className={`rounded-full px-6 py-3 transition ${
+          activeSection === 'overview'
+            ? 'bg-brand-navy text-white'
+            : 'border border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white'
+        }`}
+      >
+        Overview
+      </button>
+
+      <button
+        onClick={() =>
+          setActiveSection('foundation')
+        }
+        className={`rounded-full px-6 py-3 transition ${
+          activeSection === 'foundation'
+            ? 'bg-brand-navy text-white'
+            : 'border border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white'
+        }`}
+      >
+        Foundation
+      </button>
+
+    </div>
+
+  </Container>
+</section>
+
+    {
+activeSection === 'foundation' && (
+
+<section className="py-14 sm:py-16">
+  <Container>
+    <div className="grid gap-5 lg:grid-cols-2 lg:items-center">
 
       <img
         src={siteAssets.chairmansImage}
@@ -77,27 +122,42 @@ export function AboutPage() {
         </h3>
 
         <h6 className="mt-5 text-lg font-bold leading-relaxed text-brand-muted sm:text-xl">
-          “Nothing is important to us today than helping India become a country where advanced healthcare is available for everyone and not just a privileged few. We will strive to make Vikash a benchmark in the region.”
+          “Nothing is important to us today than helping India become a country where advanced healthcare is available for everyone and not just a privileged few.”
         </h6>
 
-        <h6 className="mt-8 font-heading text-xl font-bold text-brand-navy sm:text-2xl">
-          G. Bhaskar Rao
-        </h6>
+<h6 className="mt-8 font-heading text-2xl font-bold text-cyan-600">
+  G. Bhaskar Rao
+</h6>
 
-        <p className="mt-2 text-base text-brand-muted">
-          Chairman - Vikash Hospital Sambalpur and Vidya Vikash Group
-        </p>
+<p className="mt-2 text-lg font-semibold text-brand-navy">
+  Chairman- Vikash Hospital Sambalpur and Vidya Vikash Group
+</p>
+        
+
       </div>
 
     </div>
   </Container>
 </section>
 
-<section className="py-14 sm:py-16">
+)}
+
+
+{ activeSection === 'overview' && (
+
+<>
+
+{/* ABOUT US SECTION */}
+
+<section className="pt-4 pb-14 sm:pb-16">
   <Container>
+
     <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
 
+      {/* TEXT LEFT */}
+
       <div>
+
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">
           About Us
         </p>
@@ -107,9 +167,14 @@ export function AboutPage() {
         </h2>
 
         <p className="mt-5 text-base leading-relaxed text-brand-muted">
-          Vikash Hospitals, Sambalpur has become a hallmark of trust in medical & surgical specialties across the western part of Odisha. The hospital is promoted with a vision to create a world-class medical facility, where patients are treated with unmatched compassion and care.
+         Vikash Hospital Sambalpur is a trusted multispecialty healthcare provider in Western Odisha, offering all essential healthcare services under one roof, ensuring that no patient needs to go outside in search of quality medical care. We are proud partners in health with leading corporates, PSUs, and healthcare insurance organizations, making healthcare both accessible and affordable. Located in a soothing and serene environment with easy connectivity through all means of transportation, we combine state-of-the-art technology and a team of expert professionals to provide the highest standard of care. Our commitment to patient transparency, modern medical practices, and compassionate service guarantees a comprehensive healthcare experience for every individual.
+
+
         </p>
+
       </div>
+
+      {/* IMAGE RIGHT */}
 
       <img
         src={siteAssets.overview}
@@ -118,34 +183,55 @@ export function AboutPage() {
       />
 
     </div>
+
   </Container>
 </section>
 
+{/* OUR STORY SECTION */}
+
 <section className="py-14 sm:py-16">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <img src={siteAssets.aboutStoryImage} alt="Doctors team" className="w-full rounded-3xl object-cover shadow-xl" />
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">Our Story</p>
-              <h2 className="mt-2 font-heading text-3xl font-extrabold text-brand-navy sm:text-4xl">
-                From a Vision to a Healthcare Revolution
-              </h2>
-              <p className="mt-4 text-brand-muted">
-                Established in 1998, Vaidya Vikash Hospitals began with a single mission: to make world-class healthcare
-                accessible to all.
-              </p>
-              <p className="mt-4 text-brand-muted">
-                Our journey is defined by relentless innovation and a steadfast commitment to patient safety. We believe
-                true healing happens when technology meets empathy.
-              </p>
-              <p className="mt-4 text-brand-muted">
-                Today, we stand as a beacon of hope with advanced clinical infrastructure and a dedicated team delivering
-                personalized care.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+  <Container>
+
+    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+
+      {/* IMAGE LEFT */}
+
+      <img
+        src={siteAssets.aboutStoryImage}
+        alt="Doctors team"
+        className="w-full rounded-3xl object-cover shadow-xl"
+      />
+
+      {/* TEXT RIGHT */}
+
+      <div>
+
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">
+          Our Story
+        </p>
+
+        <h2 className="mt-2 font-heading text-3xl font-extrabold text-brand-navy sm:text-4xl">
+          From a Vision to a Healthcare Revolution
+        </h2>
+
+        <p className="mt-4 text-brand-muted">
+          Established in 1998, Vaidya Vikash Hospitals began with a single mission.
+        </p>
+
+        <p className="mt-4 text-brand-muted">
+          Our journey is defined by relentless innovation and compassion.
+        </p>
+
+      </div>
+
+    </div>
+
+  </Container>
+</section>
+
+</>
+
+)}
 
 
 
