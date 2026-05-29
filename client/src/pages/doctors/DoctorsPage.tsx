@@ -1,4 +1,8 @@
-import { useMemo, useState } from 'react'
+import {
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import { Link } from 'react-router-dom'
 import { PageScaffold } from '../../components/layout/PageScaffold'
 import { Container } from '../../components/ui/Container'
@@ -9,6 +13,14 @@ const filterTabs = ['All Specialists', 'Cardiology', 'Neurology', 'Pediatrics', 
 export function DoctorsPage() {
   const [activeTab, setActiveTab] = useState<(typeof filterTabs)[number]>('All Specialists')
   const [query, setQuery] = useState('')
+  const [currentPage, setCurrentPage] =
+  useState(1)
+
+  useEffect(() => {
+
+  setCurrentPage(1)
+
+}, [activeTab, query])
 
   const filteredDoctors = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -24,6 +36,24 @@ export function DoctorsPage() {
       )
     })
   }, [activeTab, query])
+
+  const doctorsPerPage = 6
+
+const totalPages =
+  Math.ceil(
+    filteredDoctors.length /
+    doctorsPerPage
+  )
+
+const startIndex =
+  (currentPage - 1) *
+  doctorsPerPage
+
+const paginatedDoctors =
+  filteredDoctors.slice(
+    startIndex,
+    startIndex + doctorsPerPage
+  )
 
   return (
     <PageScaffold>
@@ -79,13 +109,13 @@ export function DoctorsPage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {filteredDoctors.map((doctor) => (
+            {paginatedDoctors.map((doctor) => (
               <article
                 key={doctor.id}
                 className="overflow-hidden rounded-2xl border border-brand-border/25 bg-white shadow-[0_4px_24px_rgba(3,16,44,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(3,16,44,0.09)]"
               >
                 <div className="relative h-[320px] overflow-hidden">
-                  <img src={doctor.image} alt={doctor.name} className="h-full w-full object-cover" loading="lazy" />
+                  <img src={doctor.image} alt={doctor.name} className="h-full w-full object-cover object-top" loading="lazy" />
                   <span className="absolute bottom-4 left-4 rounded-lg bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-brand-navy backdrop-blur">
                     {doctor.speciality}
                   </span>
@@ -95,46 +125,73 @@ export function DoctorsPage() {
                   <h2 className="font-heading text-[2rem] font-bold leading-8 text-brand-navy">{doctor.name}</h2>
                   <p className="mt-1 text-sm text-brand-muted">{doctor.qualification}</p>
 
-                  <div className="mt-4 flex items-center gap-5 text-xs font-semibold text-[#181c1f]">
-                    <p className="flex items-center gap-1.5">
-                      <span className="size-2 rounded-full bg-brand-green" />
-                      {doctor.experience}
-                    </p>
-                    <p className="flex items-center gap-1.5">
-                      <span className="text-[#f59e0b]">★</span>
-                      {doctor.rating.toFixed(1)} ({doctor.reviews} Reviews)
-                    </p>
-                  </div>
+                  <div className="mt-4 space-y-2">
 
-                  <Link
-                    to="/book-appointment"
-                    className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-brand-border/40 text-base font-semibold text-brand-navy transition hover:border-brand-green/40 hover:text-brand-green"
-                  >
-                    Book Now
-                    <span aria-hidden>›</span>
-                  </Link>
+  <p className="text-sm font-semibold text-brand-green">
+    {doctor.designation}
+  </p>
+
+  <p className="line-clamp-3 text-sm leading-6 text-brand-muted">
+    {doctor.specialCareServices}
+  </p>
+
+</div>
+
+                <div className="mt-7 flex gap-3">
+
+  <Link
+    to={`/doctors/${doctor.id}`}
+    className="inline-flex h-12 flex-1 items-center justify-center rounded-xl border border-brand-border/40 text-base font-semibold text-brand-navy transition hover:border-brand-green/40 hover:text-brand-green"
+  >
+    View Profile
+  </Link>
+
+  <Link
+    to="/book-appointment"
+    className="inline-flex h-12 flex-1 items-center justify-center rounded-xl bg-brand-navy text-base font-semibold text-white transition hover:bg-brand-green"
+  >
+    Book Now
+  </Link>
+
+</div>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-1 rounded-xl bg-[#eef1f6] px-2 py-1 text-sm text-brand-muted">
-              <button type="button" className="rounded-md bg-white px-3 py-1 font-semibold text-brand-navy shadow-sm">
-                1
-              </button>
-              <button type="button" className="rounded-md px-3 py-1 hover:bg-white/70">
-                2
-              </button>
-              <button type="button" className="rounded-md px-3 py-1 hover:bg-white/70">
-                3
-              </button>
-              <span className="px-1">...</span>
-              <button type="button" className="rounded-md px-3 py-1 hover:bg-white/70">
-                10
-              </button>
-            </div>
-          </div>
+    <div className="mt-12 flex justify-center">
+
+  <div className="inline-flex items-center gap-2 rounded-xl bg-[#eef1f6] p-2">
+
+    {
+      Array.from(
+        { length: totalPages },
+        (_, index) => (
+
+          <button
+            key={index}
+            type="button"
+            onClick={() =>
+              setCurrentPage(
+                index + 1
+              )
+            }
+            className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
+              currentPage ===
+              index + 1
+                ? "bg-white text-brand-navy shadow-sm"
+                : "text-brand-muted hover:bg-white/70"
+            }`}
+          >
+            {index + 1}
+          </button>
+        )
+      )
+    }
+
+  </div>
+
+</div>
         </Container>
       </section>
     </PageScaffold>

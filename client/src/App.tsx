@@ -15,6 +15,9 @@ import { SurgeriesPage } from './pages/surgeries/SurgeriesPage'
 import { SurgeryDetailPage } from './pages/surgeries/SurgeryDetailPage'
 import { TransplantsPage } from './pages/transplants/TransplantsPage'
 import { TransplantDetailPage } from './pages/transplants/TransplantDetailPage'
+import {
+  DoctorDetailsPage
+} from "./pages/doctors/DoctorsDetailsPage"
 
 function App() {
   return (
@@ -35,6 +38,10 @@ function App() {
       <Route path="/surgeries/:slug" element={<SurgeryDetailPage />} />
       <Route path="/transplants" element={<TransplantsPage />} />
       <Route path="/transplants/:slug" element={<TransplantDetailPage />} />
+      <Route
+  path="/doctors/:id"
+  element={<DoctorDetailsPage />}
+/>
     </Routes>
   )
 }

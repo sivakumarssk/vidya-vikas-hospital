@@ -11,9 +11,16 @@ import { ScrollReveal } from '../../components/ui/ScrollReveal'
 import { FaWhatsapp } from "react-icons/fa"
 import { FaPhoneAlt } from "react-icons/fa"
 import { useEffect, useState } from "react"
+import axios from "axios"
+import toast from "react-hot-toast"
 
 export function Home() {
   const [showPopup, setShowPopup] = useState(false)
+  const [formData, setFormData] =
+  useState({
+    fullName: "",
+    phoneNumber: ""
+  })
 
   useEffect(() => {
   const timer = setTimeout(() => {
@@ -22,6 +29,85 @@ export function Home() {
 
   return () => clearTimeout(timer)
 }, [])
+
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement>
+) => {
+
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value
+  })
+}
+
+const validateForm = () => {
+
+  if (!formData.fullName.trim()) {
+
+    toast.error(
+      "Full name is required"
+    )
+
+    return false
+  }
+
+  const phoneRegex =
+    /^[0-9]{10}$/
+
+  if (
+    !phoneRegex.test(
+      formData.phoneNumber
+    )
+  ) {
+
+    toast.error(
+      "Phone number must be exactly 10 digits"
+    )
+
+    return false
+  }
+
+  return true
+}
+
+const handleSubmit = async (
+  e: React.FormEvent
+) => {
+
+  e.preventDefault()
+
+  const isValid =
+    validateForm()
+
+  if (!isValid) return
+
+  try {
+
+    const response =
+      await axios.post(
+        "http://localhost:5000/api/enquiries",
+        formData
+      )
+
+    toast.success(
+      response.data.message
+    )
+
+    setFormData({
+      fullName: "",
+      phoneNumber: ""
+    })
+
+    setShowPopup(false)
+
+  } catch (error: any) {
+
+    toast.error(
+      error.response?.data?.message ||
+      "Unable to submit enquiry"
+    )
+  }
+}
   return (
     <>
 
@@ -50,26 +136,35 @@ export function Home() {
   Our specialists are here to assist you with expert consultations and seamless healthcare support.
 </p>
 
-          <div className="mt-8 space-y-4">
+         <form
+  onSubmit={handleSubmit}
+  className="mt-8 space-y-4"
+>
 
             <input
-              type="text"
-              placeholder="Full Name*"
+  type="text"
+  name="fullName"
+  value={formData.fullName}
+  onChange={handleChange}
+  placeholder="Full Name*"
               className="w-full rounded-lg bg-white px-4 py-3 text-sm text-black outline-none sm:rounded-xl sm:px-5 sm:py-4"
             />
 
-            <input
-              type="text"
-              placeholder="Phone Number*"
+          <input
+  type="text"
+  name="phoneNumber"
+  value={formData.phoneNumber}
+  onChange={handleChange}
+  placeholder="Phone Number*"
              // className="w-full rounded-xl bg-white px-5 py-4 text-black outline-none"
              className="w-full rounded-lg bg-white px-4 py-3 text-sm text-black outline-none sm:rounded-xl sm:px-5 sm:py-4"
             />
 
-            <button className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#0B1F66] transition hover:scale-105 sm:px-8 sm:py-3">
+            <button type="submit" className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#0B1F66] transition hover:scale-105 sm:px-8 sm:py-3">
               Submit
             </button>
 
-          </div>
+        </form>
         </div>
 
 

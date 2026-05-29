@@ -1,11 +1,113 @@
 import { PageScaffold } from '../../components/layout/PageScaffold'
 import { Container } from '../../components/ui/Container'
 import { locations } from '../../data/locations'
+import { useState } from 'react'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 export function ContactPage() {
   const primaryLocation = locations[0]
+  const [formData, setFormData] = useState({
+  fullName: '',
+  phoneNumber: '',
+  email: '',
+  message: ''
+})
+
+
+
+   const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement
+    >
+  ) => {
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const validateForm = () => {
+
+  // Full Name
+  if (!formData.fullName.trim()) {
+    toast.error('Full name is required')
+    return false
+  }
+
+  // Phone Validation
+  const phoneRegex = /^[0-9]{10}$/
+
+  if (!phoneRegex.test(formData.phoneNumber)) {
+    toast.error(
+      'Phone number must be exactly 10 digits'
+    )
+    return false
+  }
+
+  // Email Validation
+  const emailRegex =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  if (!emailRegex.test(formData.email)) {
+    toast.error(
+      'Please enter a valid email address'
+    )
+    return false
+  }
+
+  // Message Validation
+  if (!formData.message.trim()) {
+    toast.error('Message is required')
+    return false
+  }
+
+  return true
+}
+
+  const handleSubmit = async (
+    e: React.FormEvent
+  ) => {
+
+    e.preventDefault()
+
+    const isValid = validateForm()
+
+if (!isValid) return
+
+    try {
+
+      const response = await axios.post(
+        'http://localhost:5000/api/contact',
+        formData
+      )
+
+toast.success(
+  response.data.message
+)
+
+      setFormData({
+        fullName: '',
+        phoneNumber: '',
+        email: '',
+        message: ''
+      })
+
+    } catch (error: any) {
+
+      toast.error(
+  error.response?.data?.message ||
+  'Unable to send message'
+)
+
+    }
+  }
+
 
   return (
+
+    
     <PageScaffold>
       <section className="overflow-x-clip bg-brand-surface py-14 sm:py-16 lg:py-20">
         <Container>
@@ -69,11 +171,17 @@ export function ContactPage() {
             </div>
 
             <div className="rounded-3xl bg-white p-5 sm:p-8 shadow-lg lg:col-span-7">
-              <form className="space-y-6">
+             <form
+  className="space-y-6"
+  onSubmit={handleSubmit}
+>
                 <div className="grid gap-6 sm:grid-cols-2">
                   <label className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-navy/70">
                     Full Name
                     <input
+                    name="fullName"
+  value={formData.fullName}
+  onChange={handleChange}
                       className="mt-2 w-full rounded-xl bg-brand-icon-bg px-4 py-3.5 text-sm text-brand-navy outline-none placeholder:text-brand-muted sm:text-base"
                       placeholder="Dr. Jane Smith"
                     />
@@ -81,6 +189,9 @@ export function ContactPage() {
                   <label className="text-xs font-semibold uppercase tracking-[0.1em] text-brand-navy/70">
                     Phone Number
                     <input
+                    name="phoneNumber"
+  value={formData.phoneNumber}
+  onChange={handleChange}
                       className="mt-2 w-full rounded-xl bg-brand-icon-bg px-4 py-3.5 text-sm text-brand-navy outline-none placeholder:text-brand-muted sm:text-base"
                       placeholder="+91 00000 00000"
                     />
@@ -89,6 +200,9 @@ export function ContactPage() {
                 <label className="block text-xs font-semibold uppercase tracking-[0.1em] text-brand-navy/70">
                   Email Address
                   <input
+                   name="email"
+  value={formData.email}
+  onChange={handleChange}
                     className="mt-2 w-full rounded-xl bg-brand-icon-bg px-4 py-3.5 text-sm text-brand-navy outline-none placeholder:text-brand-muted sm:text-base"
                     placeholder="jane@example.com"
                   />
@@ -96,11 +210,17 @@ export function ContactPage() {
                 <label className="block text-xs font-semibold uppercase tracking-[0.1em] text-brand-navy/70">
                   How can we help?
                   <textarea
+                   name="message"
+  value={formData.message}
+  onChange={handleChange}
                     className="mt-2 h-40 w-full rounded-xl bg-brand-icon-bg px-4 py-3.5 text-sm text-brand-navy outline-none placeholder:text-brand-muted sm:text-base"
                     placeholder="Tell us more about your consultation needs..."
                   />
                 </label>
-                <button className="rounded-2xl bg-brand-navy px-8 py-3.5 font-heading text-base font-bold text-white shadow-lg sm:text-lg">
+               
+                <button 
+                type="submit"
+                className="rounded-2xl bg-brand-navy px-8 py-3.5 font-heading text-base font-bold text-white shadow-lg sm:text-lg">
                   Send Secure Message
                 </button>
                 <p className="rounded-2xl bg-brand-green/10 p-5 text-sm text-brand-green">

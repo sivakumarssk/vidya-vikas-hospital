@@ -6,6 +6,7 @@ import { siteAssets } from '../../constants/site-assets'
 import { navItems, navSpecialityDropdownSlugs } from '../../data/home'
 import { locations } from '../../data/locations'
 import { specialities } from '../../data/specialities'
+import { doctors } from "../../data/doctors"
 
 function SearchIcon({ className = '' }: { className?: string }) {
   return (
@@ -24,6 +25,10 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [locationsOpen, setLocationsOpen] = useState(false)
   const [specialitiesOpen, setSpecialitiesOpen] = useState(false)
+  const [searchQuery, setSearchQuery] =
+  useState("")
+
+
   const location = useLocation()
   const closeLocationsTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const closeSpecialitiesTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -85,6 +90,15 @@ export function SiteHeader() {
       closeSpecialitiesTimer.current = null
     }, 160)
   }
+
+  const filteredDoctors =
+  doctors.filter((doctor) =>
+    doctor.name
+      .toLowerCase()
+      .includes(
+        searchQuery.toLowerCase()
+      )
+  )
 
   return (
     <>
@@ -232,11 +246,64 @@ export function SiteHeader() {
             <div className="hidden items-center gap-3 lg:flex xl:gap-4">
               <label className="flex h-11 max-w-[200px] min-w-[160px] cursor-text items-center gap-2 rounded-full border border-transparent bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:border-brand-green/35 focus-within:bg-white focus-within:ring-2 focus-within:ring-brand-green/15 xl:max-w-[240px] xl:min-w-[200px]">
                 <SearchIcon className="size-4 shrink-0 text-brand-muted" />
-                <input
-                  type="search"
-                  placeholder="Search hospitals, doctors..."
+              <input
+  type="search"
+  value={searchQuery}
+  onChange={(e) =>
+    setSearchQuery(e.target.value)
+  }
+  placeholder="Search hospitals, doctors..."
                   className="min-w-0 flex-1 bg-transparent text-sm text-brand-navy placeholder:text-brand-muted/75 focus:outline-none"
                 />
+                
+     {
+  searchQuery &&
+  filteredDoctors.length > 0 && (
+
+    <div className="absolute right-0 top-14 z-50 max-h-[420px] w-[360px] overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl">
+
+      {
+        filteredDoctors.map((doctor) => (
+
+          <Link
+            key={doctor.id}
+            to={`/doctors/${doctor.id}`}
+            onClick={() =>
+              setSearchQuery("")
+            }
+            className="flex items-center gap-3 border-b border-gray-100 px-4 py-3 transition hover:bg-gray-50"
+          >
+
+            <img
+              src={doctor.image}
+              alt={doctor.name}
+              className="h-14 w-14 rounded-full object-cover"
+            />
+
+            <div className="flex-1">
+
+              <h3 className="text-sm font-semibold text-brand-navy">
+                {doctor.name}
+              </h3>
+
+              <p className="text-xs text-brand-muted">
+                {doctor.speciality}
+              </p>
+
+              <p className="mt-1 text-[11px] text-brand-green">
+                {doctor.designation}
+              </p>
+
+            </div>
+
+          </Link>
+        ))
+      }
+
+    </div>
+  )
+}
+
               </label>
               <Link
                 to="/book-appointment"
