@@ -38,31 +38,26 @@ function Contacts() {
     }
   };
 
-  const filteredContacts =
-  contacts.filter((contact) => {
+  const filteredContacts = contacts.filter((contact) => {
+  const date = new Date(contact.createdAt)
+    .toISOString()
+    .split("T")[0];
 
-    const date =
-      new Date(contact.createdAt)
-        .toLocaleDateString("en-IN");
+  const time = new Date(contact.createdAt)
+    .toLocaleTimeString("en-IN", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
-    const time =
-      new Date(contact.createdAt)
-        .toLocaleTimeString("en-IN", {
-          hour: "2-digit",
-          minute: "2-digit"
-        });
-
-    return (
-      date
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-
-      time
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    );
-  });
-
+  return (
+    //contact.fullName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    //contact.phoneNumber?.includes(searchTerm) ||
+    //contact.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    //contact.message?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    date.includes(searchTerm) ||
+    time.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+});
   return (
 
     <Layout>
@@ -146,16 +141,9 @@ function Contacts() {
 </td>
 
 <td style={styles.td}>
-  {new Date(
-    contact.createdAt
-  ).toLocaleDateString(
-    "en-IN",
-    {
-      day: "2-digit",
-      month: "short",
-      year: "numeric"
-    }
-  )}
+  {new Date(contact.createdAt)
+  .toISOString()
+  .split("T")[0]}
 </td>
 
 <td style={styles.td}>

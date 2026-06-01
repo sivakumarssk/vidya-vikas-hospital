@@ -38,55 +38,32 @@ function Enquiries() {
     }
   };
 
-  const filteredEnquiries =
-  enquiries.filter(
-    (enquiry) => {
+  const filteredEnquiries = enquiries.filter((enquiry) => {
+  const dateObj = new Date(enquiry.createdAt);
 
-      const date =
-        new Date(
-          enquiry.createdAt
-        ).toLocaleDateString(
-          "en-IN"
-        );
+  const date = dateObj.toISOString().split("T")[0];
 
-      const time =
-        new Date(
-          enquiry.createdAt
-        ).toLocaleTimeString(
-          "en-IN",
-          {
-            hour: "2-digit",
-            minute: "2-digit"
-          }
-        );
+  const time = dateObj.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
-      return (
-        enquiry.fullName
-          ?.toLowerCase()
-          .includes(
-            searchTerm.toLowerCase()
-          ) ||
+  return (
+    //enquiry.fullName
+      //?.toLowerCase()
+     // .includes(searchTerm.toLowerCase()) ||
 
-        enquiry.phoneNumber
-          ?.includes(
-            searchTerm
-          ) ||
+   // enquiry.phoneNumber
+     // ?.includes(searchTerm) ||
 
-        date
-          .toLowerCase()
-          .includes(
-            searchTerm.toLowerCase()
-          ) ||
+    date
+      .includes(searchTerm) ||
 
-        time
-          .toLowerCase()
-          .includes(
-            searchTerm.toLowerCase()
-          )
-      );
-    }
+    time
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
   );
-
+});
   return (
 
     <Layout>
@@ -99,7 +76,7 @@ function Enquiries() {
 
   <input
     type="text"
-    placeholder="Search by name, phone, date or time..."
+    placeholder="Search by date or time..."
     value={searchTerm}
     onChange={(e) =>
       setSearchTerm(
@@ -156,16 +133,9 @@ function Enquiries() {
                     </td>
 
                     <td style={styles.td}>
-  {new Date(
-    enquiry.createdAt
-  ).toLocaleDateString(
-    "en-IN",
-    {
-      day: "2-digit",
-      month: "short",
-      year: "numeric"
-    }
-  )}
+ {new Date(enquiry.createdAt)
+  .toISOString()
+  .split("T")[0]}
 </td>
 
 <td style={styles.td}>

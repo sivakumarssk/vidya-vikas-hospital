@@ -91,14 +91,15 @@ export function SiteHeader() {
     }, 160)
   }
 
-  const filteredDoctors =
-  doctors.filter((doctor) =>
-    doctor.name
-      .toLowerCase()
-      .includes(
-        searchQuery.toLowerCase()
-      )
-  )
+ const filteredDoctors = doctors.filter((doctor) =>
+  doctor.name
+    .toLowerCase()
+    .includes(searchQuery.toLowerCase()) ||
+
+  doctor.speciality
+    .toLowerCase()
+    .includes(searchQuery.toLowerCase())
+)
 
   return (
     <>
@@ -244,15 +245,14 @@ export function SiteHeader() {
 
           <div className="flex items-center justify-end gap-2 sm:gap-3">
             <div className="hidden items-center gap-3 lg:flex xl:gap-4">
-              <label className="flex h-11 max-w-[200px] min-w-[160px] cursor-text items-center gap-2 rounded-full border border-transparent bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:border-brand-green/35 focus-within:bg-white focus-within:ring-2 focus-within:ring-brand-green/15 xl:max-w-[240px] xl:min-w-[200px]">
-                <SearchIcon className="size-4 shrink-0 text-brand-muted" />
+<label className="relative flex h-11 max-w-[200px] min-w-[160px] cursor-text items-center gap-2 rounded-full border border-gray-300 bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:bg-white">                <SearchIcon className="size-4 shrink-0 text-brand-muted" />
               <input
   type="search"
   value={searchQuery}
   onChange={(e) =>
     setSearchQuery(e.target.value)
   }
-  placeholder="Search hospitals, doctors..."
+  placeholder="Search specializations, doctors..."
                   className="min-w-0 flex-1 bg-transparent text-sm text-brand-navy placeholder:text-brand-muted/75 focus:outline-none"
                 />
                 
@@ -260,7 +260,7 @@ export function SiteHeader() {
   searchQuery &&
   filteredDoctors.length > 0 && (
 
-    <div className="absolute right-0 top-14 z-50 max-h-[420px] w-[360px] overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl">
+    <div className="absolute left-0 top-14 z-50 max-h-[420px] w-[360px] overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl">
 
       {
         filteredDoctors.map((doctor) => (

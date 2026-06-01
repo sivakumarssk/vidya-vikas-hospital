@@ -171,10 +171,10 @@ link: {
   fontWeight: "bold"
 },
 hoverLink: {
-  backgroundColor:
-    "rgba(255,255,255,0.15)",
-  paddingLeft: "22px"
-},
+  backgroundColor: "rgba(255,255,255,0.15)",
+  transform: "translateX(6px)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
+}
 };
 
 export default Sidebar;
