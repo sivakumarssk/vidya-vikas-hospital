@@ -245,16 +245,19 @@ export function SiteHeader() {
 
           <div className="flex items-center justify-end gap-2 sm:gap-3">
             <div className="hidden items-center gap-3 lg:flex xl:gap-4">
-<label className="relative flex h-11 max-w-[200px] min-w-[160px] cursor-text items-center gap-2 rounded-full border border-gray-300 bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:bg-white">                <SearchIcon className="size-4 shrink-0 text-brand-muted" />
-              <input
+<label className="relative flex h-11 max-w-[200px] min-w-[160px] cursor-text items-center gap-2 rounded-full border border-gray-300 bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:bg-white focus-within:ring-0 focus-within:outline-none focus-within:border-gray-300">              <SearchIcon className="size-4 shrink-0 text-brand-muted" />
+          <input
   type="search"
   value={searchQuery}
-  onChange={(e) =>
-    setSearchQuery(e.target.value)
-  }
+  onChange={(e) => setSearchQuery(e.target.value)}
   placeholder="Search specializations, doctors..."
-                  className="min-w-0 flex-1 bg-transparent text-sm text-brand-navy placeholder:text-brand-muted/75 focus:outline-none"
-                />
+  style={{
+    border: "none",
+    outline: "none",
+    boxShadow: "none",
+  }}
+  className="min-w-0 flex-1 bg-transparent text-sm text-brand-navy"
+/>
                 
      {
   searchQuery &&
