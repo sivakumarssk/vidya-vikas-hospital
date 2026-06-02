@@ -79,7 +79,7 @@ if (!isValid) return
     try {
 
       const response = await axios.post(
-        'http://localhost:5000/api/contact',
+        `${import.meta.env.VITE_API_BASE_URL}/contact`,
         formData
       )
 

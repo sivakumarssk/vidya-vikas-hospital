@@ -85,7 +85,7 @@ const handleSubmit = async (
 
     const response =
       await axios.post(
-        "http://localhost:5000/api/enquiries",
+        `${import.meta.env.VITE_API_BASE_URL}/enquiries`,
         formData
       )
 
