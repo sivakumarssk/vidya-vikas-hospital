@@ -1,6 +1,8 @@
 import { Link, useParams }
 from "react-router-dom"
 
+import { useEffect } from "react"
+
 import { doctors }
 from "../../data/doctors"
 
@@ -42,6 +44,10 @@ export function DoctorDetailsPage() {
     )
   }
 
+  useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
+
   return (
 
     <PageScaffold>
@@ -50,16 +56,16 @@ export function DoctorDetailsPage() {
 
         <Container>
 
-          <div className="grid gap-10 lg:grid-cols-[380px_1fr]">
+          <div className="grid items-start gap-10 lg:grid-cols-[380px_1fr]">
 
             {/* Doctor Image */}
 
-            <div className="overflow-hidden rounded-3xl bg-white shadow-[0_8px_30px_rgba(3,16,44,0.08)]">
+            <div className="self-start overflow-hidden rounded-3xl bg-white shadow-[0_8px_30px_rgba(3,16,44,0.08)]">
 
               <img
                 src={doctor.image}
                 alt={doctor.name}
-                className="h-full w-full object-cover"
+                className="h-[380px] w-full object-cover object-top"
               />
 
             </div>
@@ -80,7 +86,7 @@ export function DoctorDetailsPage() {
                 {doctor.qualification}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-4">
+              <div className="mt-6 flex flex-wrap gap-4 ">
 
                 <div className="rounded-2xl bg-white px-5 py-4 shadow-sm">
 
@@ -107,6 +113,22 @@ export function DoctorDetailsPage() {
                 </div>
 
               </div>
+               </div>
+               </div>
+
+              {/* About Doctor */}
+
+{doctor.aboutDoctor && (
+  <div className="mt-12 w-full rounded-3xl bg-white p-8 shadow-[0_6px_24px_rgba(3,16,44,0.06)]">
+    <h2 className="text-2xl font-bold text-brand-navy">
+      About Doctor
+    </h2>
+
+    <p className="mt-5 leading-8 text-brand-muted">
+      {doctor.aboutDoctor}
+    </p>
+  </div>
+)}
 
               {/* Services */}
 
@@ -127,7 +149,7 @@ export function DoctorDetailsPage() {
 
               {/* Buttons */}
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-4 justify-center">
 
                 <Link
                   to="/book-appointment"
@@ -143,9 +165,9 @@ export function DoctorDetailsPage() {
                   Back To Doctors
                 </Link>
 
-              </div>
+             
 
-            </div>
+          
 
           </div>
 

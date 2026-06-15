@@ -53,7 +53,7 @@ export function HeroSection() {
             <p className="mx-auto hidden max-w-md text-center text-[0.9rem] leading-relaxed text-brand-muted sm:mx-0 sm:block sm:text-left sm:text-base">
               Choose a city to see nearby centres, specialists, and appointment slots tailored for you.
             </p>
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-start sm:gap-2.5">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:justify-start sm:gap-2.5">
               {heroLocations.map((loc) => {
                 const active = activeLocation === loc
                 return (
@@ -61,7 +61,7 @@ export function HeroSection() {
                     key={loc}
                     type="button"
                     onClick={() => setActiveLocation(loc)}
-                    className={`min-h-11 rounded-xl border px-2.5 py-2 text-[12px] font-semibold transition active:scale-[0.98] sm:min-h-0 sm:px-5 sm:py-2.5 sm:text-sm md:text-base ${
+                    className={`w-full min-h-11 rounded-xl border px-2.5 py-2 text-[12px] font-semibold transition active:scale-[0.98] sm:min-h-0 sm:px-5 sm:py-2.5 sm:text-sm md:text-base ${
                       active
                         ? 'border-brand-green bg-brand-green text-white shadow-md shadow-brand-green/25'
                         : 'border-brand-border/60 bg-white text-brand-navy shadow-sm hover:border-brand-green/35 hover:shadow-md'

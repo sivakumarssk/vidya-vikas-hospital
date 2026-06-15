@@ -16,6 +16,8 @@ import contactMap from '../assets/figma/contact-map.svg'
 import appointmentHero from '../assets/figma/appointment-hero.svg'
 import chairmansImage from '../assets/figma/chairmansImage.png'
 import overview from '../assets/figma/overview.png'
+import dilipkumarpanda from '../assets/figma/dilip-kumar-panda.png'
+import headofUnit from '../assets/figma/head-of-unit.png'
 
 export const siteAssets = {
   logo,
@@ -37,5 +39,7 @@ export const siteAssets = {
   contactMap,
   appointmentHero,
 chairmansImage,
+dilipkumarpanda,
+headofUnit,
   overview
 } as const

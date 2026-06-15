@@ -115,9 +115,9 @@ export function SiteHeader() {
             <img
               src={siteAssets.logo}
               alt="Vaidya Vikash Hospitals"
-              className="h-11 w-auto sm:h-14"
-              width={190}
-              height={136}
+              className="h-14 w-auto sm:h-22"
+              width={250}
+              height={150}
             />
           </Link>
 

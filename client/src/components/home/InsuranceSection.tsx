@@ -1,5 +1,5 @@
 import { Container } from '../ui/Container'
-import { insuranceCompanies, insuranceTpa } from '../../data/home'
+import { insuranceTpa } from '../../data/home'
 
 const deskImage =
   'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80'
@@ -40,21 +40,6 @@ export function InsuranceSection() {
                 </h3>
                 <div className="flex flex-wrap gap-2.5">
                   {insuranceTpa.map((name) => (
-                    <span
-                      key={name}
-                      className="rounded-xl border border-black/[0.05] bg-brand-surface/80 px-4 py-2.5 text-sm font-semibold text-brand-navy shadow-sm transition hover:border-brand-green/20 hover:bg-white"
-                    >
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="mb-4 font-heading text-sm font-bold uppercase tracking-wide text-brand-navy">
-                  Insurance companies
-                </h3>
-                <div className="flex flex-wrap gap-2.5">
-                  {insuranceCompanies.map((name) => (
                     <span
                       key={name}
                       className="rounded-xl border border-black/[0.05] bg-brand-surface/80 px-4 py-2.5 text-sm font-semibold text-brand-navy shadow-sm transition hover:border-brand-green/20 hover:bg-white"

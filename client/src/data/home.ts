@@ -91,7 +91,7 @@ export const quickActions = [
   { title: 'Free Second Opinion', href: '#second-opinion' },
 ] as const
 
-export const insuranceTpa = ['Medi Assist', 'Raksha TPA', 'Paramount', 'FHPL'] as const
+export const insuranceTpa = ['STAR HEALTH & ALLIED INSURANCE', 'MEDI ASSIST HEALTH INSURANCE & TPA', 'MDINDIA HEALTH INSURANCE TPA PVT.LTD', 'NIVA BUPA', 'HEALTH INSURANCE TPA', 'CARE HEALTH INSURANCE', 'HEALTH INDIA TPA INSURANCE', 'HDFC ERGO GENERAL INSURANCE LTD', 'IFFCO TOKIO', 'GALAXY HEALTH INSURANCE'] as const
 export const insuranceCompanies = ['Star Health', 'ICICI Lombard', 'HDFC Ergo', 'Care'] as const
 
 export const locationCards = [
