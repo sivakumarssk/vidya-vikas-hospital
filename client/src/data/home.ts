@@ -5,6 +5,8 @@ import oncology from '../assets/specialities/oncology.png'
 import gastro from '../assets/specialities/gastro.png'
 import gynac from '../assets/specialities/gynac.png'
 //import defaultImage from '../assets/specialities/default.png'
+import nephrology from '../assets/specialities/nephrology.png'
+import radiology from '../assets/specialities/radiology.png'
 
 export type NavItem = {
   label: string
@@ -58,6 +60,8 @@ const featuredSpecialitySlugs = [
   'oncology',
   'gastroenterology',
   'gynaecology-and-obstetrics',
+  'nephrology',
+  'radiology',
 ] as const
 
 const specialityImages: Record<(typeof featuredSpecialitySlugs)[number], string> = {
@@ -66,6 +70,9 @@ const specialityImages: Record<(typeof featuredSpecialitySlugs)[number], string>
   oncology,
   gastroenterology: gastro,
   'gynaecology-and-obstetrics': gynac,
+  nephrology:nephrology,
+  radiology:radiology,
+
 }
 
 export const excellenceCards: ExcellenceCard[] = featuredSpecialitySlugs

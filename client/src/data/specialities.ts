@@ -5,6 +5,8 @@ import oncology from '../assets/specialities/oncology.png'
 import gastro from '../assets/specialities/gastro.png'
 import gynac from '../assets/specialities/gynac.png'
 import defaultImage from '../assets/specialities/default.png'
+import nephrology from '../assets/specialities/nephrology.png'
+import radiology from '../assets/specialities/radiology.png'
 
 const specialityImages: Record<string, string> = {
   cardiology: cardiology,
@@ -12,6 +14,9 @@ const specialityImages: Record<string, string> = {
   oncology: oncology,
   gastroenterology: gastro,
   'gynaecology-obstetrics': gynac,
+  nephrology:nephrology,
+  radiology:radiology
+
 }
 
 export type SpecialityItem = {
