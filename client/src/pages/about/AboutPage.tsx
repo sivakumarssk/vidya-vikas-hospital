@@ -102,7 +102,7 @@ export function AboutPage() {
 
     {
 activeSection === 'foundation' && (
-
+<>
 <section className="py-14 sm:py-16">
   <Container>
     <div className="grid gap-5 lg:grid-cols-2 lg:items-center">
@@ -110,10 +110,10 @@ activeSection === 'foundation' && (
       <img
         src={siteAssets.chairmansImage}
         alt="Chairman"
-        className="h-[400px] w-[500px] rounded-3xl object-cover object-top shadow-xl"
+        className="h-[400px] w-full rounded-3xl object-cover object-top shadow-xl"
       />
 
-      <div className='lg:-ml-10'>
+     <div className="lg:pl-6">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">
           Leadership
         </p>
@@ -140,7 +140,7 @@ activeSection === 'foundation' && (
 </h6>
 
 <p className="mt-2 text-lg font-semibold text-brand-navy">
-  Chairman- Vikash Hospital Sambalpur and Vidya Vikash Group
+  Chairman- Vaidya Vikash Group Of Hospitals
 </p>
         
 
@@ -150,15 +150,7 @@ activeSection === 'foundation' && (
   </Container>
 </section>
 
-)}
-
-
-{ activeSection === 'overview' && (
-
-<>
-
 {/* UNIT HEAD SECTION */}
-
 <section className="py-14 sm:py-16">
   <Container>
     <div className="grid gap-5 lg:grid-cols-2 lg:items-center">
@@ -218,7 +210,6 @@ activeSection === 'foundation' && (
     </div>
   </Container>
 </section>
-
 
 <section className="py-14 sm:py-16">
   <Container>
@@ -282,6 +273,17 @@ activeSection === 'foundation' && (
     </div>
   </Container>
 </section>
+
+</>
+
+)}
+
+
+{ activeSection === 'overview' && (
+
+<>
+
+
 
 {/* ABOUT US SECTION */}
 
@@ -351,7 +353,7 @@ activeSection === 'foundation' && (
         </h2>
 
         <p className="mt-4 text-brand-muted">
-          Established in 1998, Vaidya Vikash Hospitals began with a single mission.
+          Established in 2019, Vaidya Vikash Hospitals began with a single mission.
         </p>
 
         <p className="mt-4 text-brand-muted">

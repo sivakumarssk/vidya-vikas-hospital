@@ -17,7 +17,7 @@ export const locations: LocationItem[] = [
   {
     slug: 'Sambalpur',
     name: 'Sambalpur',
-    address: ' D2/8, Industrial Estate, Panchgachhia, Bareipali, Sambalpur Near Land Mark – Near Central Honda, Pincode - 768006 (Odisha)',
+    address: ' D2/8, Industrial Estate, Panchgachhia, Bareipali, Sambalpur Near Land Mark – Near Central School, Pincode - 768006 (Odisha)',
     phone: '+91 99380 97999',
     email: 'sbp@vikashhospitals.com',
     timings: 'Mon-Sat: 8:00 AM - 8:00 PM',

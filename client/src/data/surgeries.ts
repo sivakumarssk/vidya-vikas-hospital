@@ -28,15 +28,15 @@ type ScrapedPage = {
 }
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vidya Vikash Hospital'],
+  [/\bYashoda Hospitals\b/gi, 'Viadya Vikash Hospital'],
+  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
 ]
 
 const defaultFAQs = [
   {
     q: 'Where can I have this procedure done?',
-    a: 'Elective and emergency surgical services are available across Vidya Vikash Hospital campuses, with complex procedures coordinated through our flagship centre at Sambalpur and supporting units in Kakinada, Berhampur, and Jharsuguda.',
+    a: 'Elective and emergency surgical services are available across Vaidya Vikash Hospital campuses, with complex procedures coordinated through our flagship centre at Sambalpur and supporting units in Kakinada, Berhampur, and Jharsuguda.',
   },
   {
     q: 'How do I prepare for surgery?',
@@ -75,7 +75,7 @@ function buildSurgery(page: ScrapedPage): SurgeryItem {
   const shortDescription =
     overview[0] ??
     normalizeText(
-      `Expert surgical care for ${name.replace(/^Advanced\s+/i, '').replace(/\s+in\s+Sambalpur\s*$/i, '')} at Vidya Vikash Hospital with modern theatres and multidisciplinary support.`,
+      `Expert surgical care for ${name.replace(/^Advanced\s+/i, '').replace(/\s+in\s+Sambalpur\s*$/i, '')} at Vaidya Vikash Hospital with modern theatres and multidisciplinary support.`,
     )
 
   return {
@@ -84,7 +84,7 @@ function buildSurgery(page: ScrapedPage): SurgeryItem {
     image: SURGERY_IMAGES[page.slug] || knee,
     shortDescription,
     overview:
-      overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} and recovery expectations at Vidya Vikash Hospital.`)],
+      overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} and recovery expectations at Vaidya Vikash Hospital.`)],
     keyFeatures: keyFeatures.length > 0 ? keyFeatures : fallbackFeatures(name),
     faqs,
   }
@@ -210,7 +210,7 @@ function sanitizeFaqs(items: { q: string; a: string }[]) {
 
 function fallbackFeatures(name: string) {
   return [
-    `Protocol-led evaluation and consent at Vidya Vikash Hospital for ${name}.`,
+    `Protocol-led evaluation and consent at Vaidya Vikash Hospital for ${name}.`,
     'Modern operation theatres, anaesthesia safety standards, and infection control.',
     'Structured follow-up and rehabilitation planning when required.',
   ].map(normalizeText)

@@ -72,7 +72,7 @@ export function BlogsPage() {
           </p>
           <h1 className="mt-3 font-heading text-4xl font-extrabold text-brand-navy sm:text-5xl">Health Insights & Medical Updates</h1>
           <p className="mt-3 max-w-3xl text-lg text-brand-muted">
-            Read expert guidance from Vidya Vikash Hospital specialists across prevention, diagnosis, treatment, and
+            Read expert guidance from Vaidya Vikash Hospital specialists across prevention, diagnosis, treatment, and
             recovery.
           </p>
 

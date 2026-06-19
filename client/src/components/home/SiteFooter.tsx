@@ -134,7 +134,7 @@ export function SiteFooter() {
           <p className="text-xs leading-relaxed text-white/45 sm:max-w-md sm:text-left">
             © {new Date().getFullYear()} Vaidya Vikash Hospitals. All rights reserved.
           </p>
-          <p className="text-[11px] text-white/35">A unit of Vidya Vikash Health Care Pvt. Ltd.</p>
+          <p className="text-[11px] text-white/35">A unit of Vaidya Vikash Health Care Pvt. Ltd.</p>
         </div>
       </Container>
     </footer>

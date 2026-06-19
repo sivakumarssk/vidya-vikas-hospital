@@ -50,16 +50,16 @@ const PROGRAM_IMAGES: Record<string, string> = {
 }
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda Heart Institute\b/gi, 'Vidya Vikash Heart Institute'],
+  [/\bYashoda Hospitals\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda Heart Institute\b/gi, 'Vaidya Vikash Heart Institute'],
 ]
 
 const defaultFAQs = [
   {
     q: 'Where are transplant evaluations done?',
-    a: 'Multidisciplinary transplant assessment is coordinated through Vidya Vikash Hospital at Sambalpur, with supporting work-up and follow-up available across Kakinada, Berhampur, and Jharsuguda as clinically appropriate.',
+    a: 'Multidisciplinary transplant assessment is coordinated through Vaidya Vikash Hospital at Sambalpur, with supporting work-up and follow-up available across Kakinada, Berhampur, and Jharsuguda as clinically appropriate.',
   },
   {
     q: 'How do I start a referral?',
@@ -100,7 +100,7 @@ function buildTransplant(page: ScrapedPage): TransplantItem {
   const shortDescription =
     overview[0] ??
     normalizeText(
-      `Comprehensive ${name.toLowerCase()} care at Vidya Vikash Hospital with transplant multidisciplinary teams and modern perioperative support.`,
+      `Comprehensive ${name.toLowerCase()} care at Vaidya Vikash Hospital with transplant multidisciplinary teams and modern perioperative support.`,
     )
    // console.log(page.slug)
 
@@ -110,7 +110,7 @@ function buildTransplant(page: ScrapedPage): TransplantItem {
     image: PROGRAM_IMAGES[page.slug as keyof typeof PROGRAM_IMAGES],
     shortDescription,
     overview:
-      overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} at Vidya Vikash Hospital.`)],
+      overview.length > 0 ? overview : [normalizeText(`Learn more about ${name} at Vaidya Vikash Hospital.`)],
     keyFeatures: keyFeatures.length > 0 ? keyFeatures : fallbackFeatures(name),
     faqs,
   }
@@ -251,7 +251,7 @@ function isGenericFooterFaq(item: { q: string; a: string }) {
 function fallbackFeatures(name: string) {
   return [
     `Multidisciplinary transplant team for ${name}.`,
-    'Pre-transplant work-up, organ listing support, and dedicated perioperative care at Vidya Vikash Hospital.',
+    'Pre-transplant work-up, organ listing support, and dedicated perioperative care at Vaidya Vikash Hospital.',
     'Long-term immunosuppression planning and infection-prevention protocols.',
   ].map(normalizeText)
 }

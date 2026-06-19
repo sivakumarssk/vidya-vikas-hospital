@@ -29,15 +29,15 @@ type ScrapedPage = {
 }
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vidya Vikash Hospital'],
+  [/\bYashoda Hospitals\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
 ]
 
 const defaultFAQs = [
   {
     q: 'Where is this technology available?',
-    a: 'Advanced modalities are available across Vidya Vikash Hospital campuses, with flagship diagnostics and interventional suites at Sambalpur and coordinated support in Kakinada, Berhampur, and Jharsuguda.',
+    a: 'Advanced modalities are available across Vaidya Vikash Hospital campuses, with flagship diagnostics and interventional suites at Sambalpur and coordinated support in Kakinada, Berhampur, and Jharsuguda.',
   },
   {
     q: 'How do I know if this procedure is right for me?',
@@ -105,7 +105,7 @@ function buildTechnology(page: ScrapedPage): TechnologyItem {
   const faqs = sanitizeFaqs(page.faqs)
   const shortDescription =
     overview[0] ??
-    `Advanced clinical capability at Vidya Vikash Hospital — ${name} with specialist-led protocols and modern infrastructure.`
+    `Advanced clinical capability at Vaidya Vikash Hospital — ${name} with specialist-led protocols and modern infrastructure.`
 //console.log(page.slug, technologyImages[page.slug])
   return {
   name,
@@ -115,7 +115,7 @@ function buildTechnology(page: ScrapedPage): TechnologyItem {
   overview:
     overview.length > 0
       ? overview
-      : [normalizeText(`Learn more about ${name} at Vidya Vikash Hospital.`)],
+      : [normalizeText(`Learn more about ${name} at Vaidya Vikash Hospital.`)],
   keyFeatures:
     keyFeatures.length > 0 ? keyFeatures : fallbackFeatures(name),
   faqs,
@@ -227,7 +227,7 @@ function sanitizeFaqs(items: { q: string; a: string }[]) {
 function fallbackFeatures(name: string) {
   return [
     `Specialist workflows and safety checks for ${name}.`,
-    'Integrated diagnostics and treatment planning at Vidya Vikash Hospital.',
+    'Integrated diagnostics and treatment planning at Vaidya Vikash Hospital.',
     'Multidisciplinary review where clinically appropriate.',
   ].map(normalizeText)
 }

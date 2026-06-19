@@ -13,7 +13,7 @@ export function SurgeriesPage() {
           </p>
           <h1 className="mt-4 font-heading text-4xl font-extrabold text-brand-navy sm:text-5xl">Surgeries &amp; procedures</h1>
           <p className="mt-4 max-w-3xl text-lg text-brand-muted">
-            Browse common and advanced procedures offered at Vidya Vikash Hospital. Content is organised for patient education;
+            Browse common and advanced procedures offered at Vaidya Vikash Hospital. Content is organised for patient education;
             your consultant will confirm what is appropriate for your condition.
           </p>
 

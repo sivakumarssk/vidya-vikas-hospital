@@ -139,7 +139,7 @@ const defaultFAQs = [
   },
   {
     q: 'Do you offer both OPD and inpatient care?',
-    a: 'Yes. Vidya Vikash Hospital supports outpatient consultations, daycare procedures, and full inpatient care based on clinical need.',
+    a: 'Yes. Vaidya Vikash Hospital supports outpatient consultations, daycare procedures, and full inpatient care based on clinical need.',
   },
   {
     q: 'How can I book quickly?',
@@ -148,9 +148,9 @@ const defaultFAQs = [
 ] as const
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vidya Vikash Hospital'],
+  [/\bYashoda Hospitals\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
+  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
 ]
 
 export const specialities: SpecialityItem[] = names.map((name) => ({
@@ -159,8 +159,8 @@ export const specialities: SpecialityItem[] = names.map((name) => ({
 
 export const specialityFAQs = [
   {
-    q: 'Why choose Vidya Vikash Hospital?',
-    a: 'Vidya Vikash Hospital combines advanced technology, specialist expertise, and compassionate, patient-centric care across major medical disciplines.',
+    q: 'Why choose Vaidya Vikash Hospital?',
+    a: 'Vaidya Vikash Hospital combines advanced technology, specialist expertise, and compassionate, patient-centric care across major medical disciplines.',
   },
   {
     q: 'When should I visit a hospital?',
@@ -203,7 +203,7 @@ function buildSpeciality(name: string): SpecialityItem {
       shortDescription:
         'Dedicated sports medicine and arthroscopy care for athletes and active individuals, with minimally invasive treatment and focused rehabilitation.',
       overview: [
-        'Vidya Vikash Institute of Sports Medicine & Arthroscopy delivers specialized care for sports injuries, joint instability, and overuse conditions caused by high-intensity activity.',
+        'Vaidya Vikash Institute of Sports Medicine & Arthroscopy delivers specialized care for sports injuries, joint instability, and overuse conditions caused by high-intensity activity.',
         'Our program integrates orthopedic surgeons, sports medicine specialists, physiotherapists, and athletic rehabilitation experts so every patient receives a personalized return-to-activity plan.',
         'We focus on rapid pain control, tissue healing, functional recovery, and safe return to training using evidence-based protocols and modern arthroscopic techniques.',
       ],
@@ -249,9 +249,9 @@ function buildSpeciality(name: string): SpecialityItem {
     name,
     slug,
      image: specialityImages[slug] || defaultImage,
-    shortDescription: `Comprehensive ${lower} services at Vidya Vikash Hospital with evidence-based care, advanced diagnostics, and multidisciplinary specialists.`,
+    shortDescription: `Comprehensive ${lower} services at Vaidya Vikash Hospital with evidence-based care, advanced diagnostics, and multidisciplinary specialists.`,
     overview: [
-      `The ${name} department at Vidya Vikash Hospital provides specialist-led diagnosis, treatment, and follow-up for acute and chronic clinical needs.`,
+      `The ${name} department at Vaidya Vikash Hospital provides specialist-led diagnosis, treatment, and follow-up for acute and chronic clinical needs.`,
       'Our teams combine protocol-driven medicine with individualized care plans, ensuring treatment decisions are aligned with patient age, risk profile, and recovery goals.',
       'From first consultation to long-term monitoring, the care pathway is coordinated across diagnostics, procedural units, and rehabilitation support when required.',
     ],
@@ -296,7 +296,7 @@ function sanitizeOverview(items: string[], speciality: string) {
   if (picked.length > 0) return picked
 
   return [
-    `The ${speciality} department at Vidya Vikash Hospital delivers evidence-based, specialist-led care for acute and long-term conditions.`,
+    `The ${speciality} department at Vaidya Vikash Hospital delivers evidence-based, specialist-led care for acute and long-term conditions.`,
     'Our multidisciplinary team combines diagnostics, treatment planning, and follow-up care to improve outcomes and patient comfort.',
     'From first consultation to recovery, we focus on safe treatment pathways, transparent communication, and long-term health support.',
   ]
@@ -328,7 +328,7 @@ function isScrapedNoise(text: string) {
 
 function buildShortDescription(name: string, firstParagraph?: string) {
   if (firstParagraph && firstParagraph.length > 80) return firstParagraph
-  return `Comprehensive ${name.toLowerCase()} care at Vidya Vikash Hospital with specialist teams, modern diagnostics, and patient-centered treatment pathways.`
+  return `Comprehensive ${name.toLowerCase()} care at Vaidya Vikash Hospital with specialist teams, modern diagnostics, and patient-centered treatment pathways.`
 }
 
 function fallbackConditions(name: string) {

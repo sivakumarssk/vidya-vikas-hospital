@@ -15,7 +15,7 @@ export function SpecialitiesPage() {
             Centers of Specialty Care
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-brand-muted">
-            Explore all departments at Vidya Vikash Hospital. Each unit is staffed by experienced specialists and
+            Explore all departments at Vaidya Vikash Hospital. Each unit is staffed by experienced specialists and
             supported by advanced diagnostics and emergency backup.
           </p>
           <p className="mt-2 text-sm text-brand-muted">

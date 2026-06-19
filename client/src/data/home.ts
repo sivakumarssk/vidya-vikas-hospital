@@ -49,7 +49,7 @@ export type ExcellenceCard = {
 
 export const excellenceTabs = [
   { id: 'specialities', label: 'Specialities' },
-  { id: 'transplants', label: 'Transplants' },
+ // { id: 'transplants', label: 'Transplants' },
   { id: 'technologies', label: 'Technologies' },
   { id: 'surgeries', label: 'Key Surgeries' },
 ] as const

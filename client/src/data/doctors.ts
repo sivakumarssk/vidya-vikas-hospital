@@ -20,7 +20,7 @@ import drmohammedfaiser from '../assets/figma/doctor-mohammed-faiser.png'
 import drjyothijoshi from '../assets/figma/doctor-jyoti-joshi.png'
 import dranjankumarpanda from '../assets/figma/doctor-anjan-kumar-panda.png'
 import drshobhagininayak from '../assets/figma/doctor-shobhagini-nayak.png'
-import drumapathinaidu from '../assets/figma/doctor-umapathi-naidu.png'
+//import drumapathinaidu from '../assets/figma/doctor-umapathi-naidu.png'
 import drrammohan from '../assets/figma/doctor-ram-mohan.png';
 
 
@@ -39,17 +39,17 @@ export const doctors: DoctorItem[] = [
 
   
 
-  {
-    id: 'DR.UMAPATHI NAIDU',
-    name: 'DR.UMAPATHI NAIDU',
-    qualification: 'MBBS, MHSM, DBA',
-    speciality: 'Head of Unit',
-    specialCareServices:'',
-    designation:'Unit Head-Vaidya Vikash Hospital, Sambalpur',
-   aboutDoctor:'Dr. Umapathi Naidu is the Unit Head of Vaidya Vikash Hospital, Sambalpur, and a healthcare leader committed to advancing patient-centered medical excellence.',
+  // {
+  //   id: 'DR.UMAPATHI NAIDU',
+  //   name: 'DR.UMAPATHI NAIDU',
+  //   qualification: 'MBBS, MHSM, DBA',
+  //   speciality: 'Head of Unit',
+  //   specialCareServices:'',
+  //   designation:'Unit Head-Vaidya Vikash Hospital, Sambalpur',
+  //  aboutDoctor:'Dr. Umapathi Naidu is the Unit Head of Vaidya Vikash Hospital, Sambalpur, and a healthcare leader committed to advancing patient-centered medical excellence.',
     
-    image: drumapathinaidu,
-  },
+  //   image: drumapathinaidu,
+  // },
 
 
 

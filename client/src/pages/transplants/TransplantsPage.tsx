@@ -13,7 +13,7 @@ export function TransplantsPage() {
           </p>
           <h1 className="mt-4 font-heading text-4xl font-extrabold text-brand-navy sm:text-5xl">Transplant care</h1>
           <p className="mt-4 max-w-3xl text-lg text-brand-muted">
-            Vidya Vikash Hospital offers coordinated transplant pathways for organ failure and selected haematological
+            Vaidya Vikash Hospital offers coordinated transplant pathways for organ failure and selected haematological
             conditions. The programmes below reflect our clinical scope; eligibility is always decided after full
             multidisciplinary assessment.
           </p>

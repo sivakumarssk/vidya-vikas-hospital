@@ -24,7 +24,13 @@ export function DoctorsPage() {
 
   const filteredDoctors = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
-    return doctors.filter((doctor) => {
+    return [...doctors]
+  .sort((a, b) =>
+    a.speciality.localeCompare(
+      b.speciality
+    )
+  )
+  .filter((doctor) => {
       const specialityMatch = activeTab === 'All Specialists' || doctor.speciality === activeTab
       if (!specialityMatch) return false
       if (!normalizedQuery) return true

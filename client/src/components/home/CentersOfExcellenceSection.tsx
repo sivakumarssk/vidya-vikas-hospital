@@ -3,7 +3,7 @@ import { Container } from '../ui/Container'
 import { excellenceCards, excellenceTabs } from '../../data/home'
 import { technologies } from '../../data/technologies'
 import { surgeries } from '../../data/surgeries'
-import { transplants } from '../../data/transplants'
+//import { transplants } from '../../data/transplants'
 import { ExcellenceCard } from './ExcellenceCard'
 import { Link } from 'react-router-dom'
 
@@ -11,14 +11,12 @@ export function CentersOfExcellenceSection() {
   const [tab, setTab] = useState<(typeof excellenceTabs)[number]['id']>('specialities')
 
   const moreHref =
-    tab === 'technologies' ? '/technologies' : tab === 'surgeries' ? '/surgeries' : tab === 'transplants' ? '/transplants' : '/specialities'
+    tab === 'technologies' ? '/technologies' : tab === 'surgeries' ? '/surgeries': '/specialities'
   const moreLabel =
     tab === 'technologies'
       ? 'All Technologies'
       : tab === 'surgeries'
         ? 'All surgeries & procedures'
-        : tab === 'transplants'
-          ? 'Transplant programmes'
           : 'More Specialities'
 
   return (
@@ -132,33 +130,7 @@ export function CentersOfExcellenceSection() {
                       </span>
                     </Link>
                   ))
-                : tab === 'transplants'
-                  ? transplants.map((item) => (
-                      <Link
-                        key={item.slug}
-                        to={`/transplants/${item.slug}`}
-                        className="group flex h-full min-h-0 flex-col rounded-[1.75rem] border border-black/[0.04] bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-green/10 hover:shadow-xl sm:rounded-[2rem] sm:p-8"
-                      >
-                        <div className="mb-5 flex h-24 w-24 items-center justify-center rounded-3xl bg-white shadow-sm ring-1 ring-[#ececec] sm:mb-6 sm:h-28 sm:w-28">
-                          {/* <svg className="size-8 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                            <path d="M12 20s-7-4.5-9-9a5.2 5.2 0 019-5 5.2 5.2 0 019 5c-2 4.5-9 9-9 9z" />
-                          </svg> */}
-                          <img
-  src={item.image}
-  alt={item.name}
- className="h-16 w-16 object-contain sm:h-20 sm:w-20"
-/>
-                        </div>
-                        <h3 className="font-heading text-lg font-bold text-brand-navy group-hover:text-brand-green sm:text-xl">{item.name}</h3>
-                        <p className="mt-2 line-clamp-3 overflow-hidden text-sm leading-relaxed text-brand-muted sm:text-[0.9375rem]">
-                          {item.shortDescription}
-                        </p>
-                        <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-brand-green transition group-hover:gap-2">
-                          View programme
-                          <span className="size-3.5">→</span>
-                        </span>
-                      </Link>
-                    ))
+                
                   : excellenceCards.map((card) => <ExcellenceCard key={card.title} card={card} />)}
           </div>
 

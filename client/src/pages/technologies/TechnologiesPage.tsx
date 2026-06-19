@@ -13,7 +13,7 @@ export function TechnologiesPage() {
           </p>
           <h1 className="mt-4 font-heading text-4xl font-extrabold text-brand-navy sm:text-5xl">Our Technologies</h1>
           <p className="mt-4 max-w-3xl text-lg text-brand-muted">
-            Vidya Vikash Hospital invests in advanced imaging, interventional, surgical, and critical-care platforms across
+            Vaidya Vikash Hospital invests in advanced imaging, interventional, surgical, and critical-care platforms across
             Sambalpur, Kakinada, Berhampur, and Jharsuguda so patients receive precise, timely, and evidence-based care.
           </p>
 

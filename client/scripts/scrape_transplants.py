@@ -102,7 +102,7 @@ def main():
     session = requests.Session()
     session.headers.update(
         {
-            "User-Agent": "Mozilla/5.0 (compatible; VidyaVikashContentBot/1.0)",
+            "User-Agent": "Mozilla/5.0 (compatible; VaidyaVikashContentBot/1.0)",
             "Accept-Language": "en-US,en;q=0.9",
         }
     )

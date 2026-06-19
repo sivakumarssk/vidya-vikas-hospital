@@ -23,11 +23,28 @@ export function Home() {
   })
 
   useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowPopup(true)
-  }, 10000)
+  const popupShown =
+    sessionStorage.getItem(
+      "popupShown"
+    )
 
-  return () => clearTimeout(timer)
+  if (!popupShown) {
+
+    const timer =
+      setTimeout(() => {
+
+        setShowPopup(true)
+
+        sessionStorage.setItem(
+          "popupShown",
+          "true"
+        )
+
+      }, 10000)
+
+    return () =>
+      clearTimeout(timer)
+  }
 }, [])
 
 const handleChange = (

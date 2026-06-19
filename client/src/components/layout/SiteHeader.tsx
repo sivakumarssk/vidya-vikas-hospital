@@ -115,14 +115,14 @@ export function SiteHeader() {
             <img
               src={siteAssets.logo}
               alt="Vaidya Vikash Hospitals"
-              className="h-14 w-auto sm:h-22"
-              width={250}
-              height={150}
+              className="h-16 w-auto sm:h-20"
+              width={450}
+              height={200}
             />
           </Link>
 
-          <nav className="hidden justify-self-center lg:flex" aria-label="Main">
-            <ul className="flex flex-wrap items-center justify-center gap-0.5 sm:gap-1">
+<nav className="hidden justify-self-center xl:flex" aria-label="Main">
+            <ul className="flex flex-nowrap items-center justify-center gap-0">
               {navItems.map((item) => (
                 <li key={item.label} className="relative">
                   {item.label === 'Specialities' ? (
@@ -230,7 +230,7 @@ export function SiteHeader() {
                       to={item.to}
                       end={item.to === '/'}
                       className={({ isActive }) =>
-                        `relative block rounded-xl px-2.5 py-2 text-[13px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-sm ${
+                        `relative block rounded-xl px-1.5 py-2 text-[13px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-sm ${
                           isActive ? 'text-brand-navy' : 'text-brand-slate hover:bg-brand-surface/90 hover:text-brand-navy'
                         }`
                       }
@@ -245,7 +245,7 @@ export function SiteHeader() {
 
           <div className="flex items-center justify-end gap-2 sm:gap-3">
             <div className="hidden items-center gap-3 lg:flex xl:gap-4">
-<label className="relative flex h-11 max-w-[200px] min-w-[160px] cursor-text items-center gap-2 rounded-full border border-gray-300 bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:bg-white focus-within:ring-0 focus-within:outline-none focus-within:border-gray-300">              <SearchIcon className="size-4 shrink-0 text-brand-muted" />
+<label className="relative flex h-11 max-w-[140px] min-w-[100px] cursor-text items-center gap-2 rounded-full border border-gray-300 bg-brand-icon-bg pl-3.5 pr-2.5 transition focus-within:bg-white focus-within:ring-0 focus-within:outline-none focus-within:border-gray-300">              <SearchIcon className="size-4 shrink-0 text-brand-muted" />
           <input
   type="search"
   value={searchQuery}
@@ -316,9 +316,9 @@ export function SiteHeader() {
               </Link>
             </div>
 
-            <button
-              type="button"
-              className="inline-flex size-11 items-center justify-center rounded-xl border border-brand-border/80 bg-white text-brand-navy shadow-sm transition hover:border-brand-green/40 hover:bg-brand-surface/50 lg:hidden"
+           <button
+  type="button"
+  className="inline-flex size-11 items-center justify-center rounded-xl border border-brand-border/80 bg-white text-brand-navy shadow-sm transition hover:border-brand-green/40 hover:bg-brand-surface/50 xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-drawer"
               onClick={() => setOpen((v) => !v)}
@@ -343,13 +343,13 @@ export function SiteHeader() {
             <>
               <button
                 type="button"
-                className="fixed inset-0 z-[210] bg-brand-navy/40 backdrop-blur-sm lg:hidden"
+                className="fixed inset-0 z-[210] bg-brand-navy/40 backdrop-blur-sm xl:hidden"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
               />
               <div
                 id="mobile-drawer"
-                className="fixed inset-y-0 right-0 z-[220] flex w-[min(100%,20rem)] flex-col border-l border-black/10 bg-white shadow-2xl lg:hidden"
+    className="fixed inset-y-0 right-0 z-[220] flex w-[min(100%,20rem)] flex-col border-l border-black/10 bg-white shadow-2xl xl:hidden"
               >
                 <div className="flex items-center justify-between border-b border-black/5 px-5 py-4">
                   <span className="font-heading text-lg font-bold text-brand-navy">Menu</span>

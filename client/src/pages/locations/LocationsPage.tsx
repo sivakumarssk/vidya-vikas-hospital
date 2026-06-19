@@ -13,7 +13,7 @@ export function LocationsPage() {
           </p>
           <h1 className="mt-4 font-heading text-4xl font-extrabold text-brand-navy sm:text-5xl">Our Hospital Locations</h1>
           <p className="mt-4 max-w-3xl text-lg text-brand-muted">
-            Find the nearest Vidya Vikash Hospital centre. Each location has specialist doctors, diagnostics, and
+            Find the nearest Vaidya Vikash Hospital centre. Each location has specialist doctors, diagnostics, and
             coordinated care pathways for consultations and emergencies.
           </p>
 
