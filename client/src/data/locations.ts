@@ -1,3 +1,7 @@
+import sambalpur from '../assets/hero.png';
+import kakikanada from '../assets/hero1.png';
+import berhampur from '../assets/hero2.png';
+import jharsuguda from '../assets/hero3.png';
 
 export type LocationItem = {
   slug: string
@@ -22,7 +26,7 @@ export const locations: LocationItem[] = [
     email: 'sbp@vikashhospitals.com',
     timings: 'Mon-Sat: 8:00 AM - 8:00 PM',
     emergency: '24/7 Emergency & Trauma Support',
-    heroImage: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhvc3BpdGFsfGVufDB8fDB8fHww',
+    heroImage: sambalpur,
     about: [
       'Sambalpur centre is our tertiary-care flagship with multidisciplinary specialists, advanced diagnostics, and high-acuity emergency pathways.',
       'The campus supports coordinated outpatient, daycare, and inpatient treatment plans with dedicated nursing and rehabilitation teams.',
@@ -38,7 +42,7 @@ export const locations: LocationItem[] = [
     email: 'kakinada@vaidyavikash.com',
     timings: 'Mon-Sat: 8:30 AM - 7:30 PM',
     emergency: '24/7 Emergency Unit',
-    heroImage: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1400&q=80',
+    heroImage: kakikanada,
     about: [
       'Kakinada location focuses on comprehensive family care with strong internal medicine, pediatrics, and surgical services.',
       'Patients receive specialist consultation, diagnostics, and follow-up programs through integrated care teams.',
@@ -54,7 +58,7 @@ export const locations: LocationItem[] = [
     email: 'berhampur@vaidyavikash.com',
     timings: 'Mon-Sat: 8:00 AM - 8:00 PM',
     emergency: '24/7 Emergency & Critical Care',
-    heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&q=80',
+    heroImage: berhampur,
     about: [
       'Berhampur centre offers specialist-led diagnostics and treatment for chronic diseases, surgical conditions, and emergency episodes.',
       'The location emphasizes patient-first workflows with fast triage and coordinated referrals for advanced procedures.',
@@ -70,7 +74,7 @@ export const locations: LocationItem[] = [
     email: 'jharsuguda@vaidyavikash.com',
     timings: 'Mon-Sat: 9:00 AM - 7:00 PM',
     emergency: '24/7 Stabilization & Transfer Support',
-    heroImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80',
+    heroImage: jharsuguda,
     about: [
       'Jharsuguda location delivers accessible multispeciality care with strong emergency stabilization and specialist consultation support.',
       'We provide streamlined referral pathways to higher-acuity centres when advanced interventions are required.',
