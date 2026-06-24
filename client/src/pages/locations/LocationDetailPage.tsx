@@ -23,7 +23,14 @@ export function LocationDetailPage() {
             ← Back to all locations
           </Link>
           <div className="mt-5 overflow-hidden rounded-3xl border border-brand-border/30 bg-white shadow-sm">
-            <img src={location.heroImage} alt={location.name} className="h-64 w-full object-cover sm:h-80" loading="lazy" />
+            <div className="flex justify-center py-4">
+  <img
+    src={location.heroImage}
+    alt={location.name}
+    className="max-h-[350px] w-auto rounded-3xl object-contain"
+    loading="lazy"
+  />
+</div>
             <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[1.3fr_1fr]">
               <div>
                 <h1 className="font-heading text-4xl font-extrabold text-brand-navy sm:text-5xl">{location.name}</h1>
