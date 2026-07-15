@@ -1,4 +1,4 @@
-import scrapedData from './transplants-scraped.json'
+﻿import scrapedData from './transplants-scraped.json'
 import heartTransplant from '../assets/transplants/heartTransplant.png'
 import lungTransplant from '../assets/transplants/lungTransplant.png'
 import kidneyTransplant from '../assets/transplants/kidneyTranplant.png'
@@ -16,7 +16,6 @@ export type TransplantItem = {
 }
 
 type ScrapedPage = {
-  sourceUrl: string
   title: string
   subtitle: string
   slug: string
@@ -50,11 +49,7 @@ const PROGRAM_IMAGES: Record<string, string> = {
 }
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda Heart Institute\b/gi, 'Vaidya Vikash Heart Institute'],
-]
+  [/\bVaidya Vikash Hospitals\b/gi, 'Vaidya Vikash Hospital'],]
 
 const defaultFAQs = [
   {
@@ -90,7 +85,6 @@ export function getTransplantBySlug(slug: string | undefined) {
 }
 
 function buildTransplant(page: ScrapedPage): TransplantItem {
-    //console.log(page.slug)
   const name =
   normalizeText(clean(page.title))
   const titleNorm = normalizeText(clean(page.title))

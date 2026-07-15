@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { PageScaffold } from '../../components/layout/PageScaffold'
 import { Container } from '../../components/ui/Container'
+import { SearchFilter } from '../../components/ui/SearchFilter'
 import { specialities } from '../../data/specialities'
 
 export function SpecialitiesPage() {
@@ -23,22 +23,7 @@ export function SpecialitiesPage() {
             facilities, and dedicated FAQs.
           </p>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {specialities.map((item) => (
-              <Link
-                key={item.slug}
-                to={`/specialities/${item.slug}`}
-                className="group rounded-2xl border border-brand-border/40 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-green/30 hover:shadow-md"
-              >
-                <h2 className="font-heading text-lg font-bold text-brand-navy group-hover:text-brand-green">{item.name}</h2>
-                <p className="mt-2 line-clamp-3 text-sm text-brand-muted">{item.shortDescription}</p>
-                <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-green">
-                  View Department
-                  <span className="ml-1">→</span>
-                </span>
-              </Link>
-            ))}
-          </div>
+          <SearchFilter items={specialities} basePath="/specialities" linkLabel="View Department" />
         </Container>
       </section>
     </PageScaffold>

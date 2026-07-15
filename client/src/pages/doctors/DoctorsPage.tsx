@@ -8,7 +8,7 @@ import { PageScaffold } from '../../components/layout/PageScaffold'
 import { Container } from '../../components/ui/Container'
 import { doctors } from '../../data/doctors'
 
-const filterTabs = ['All Specialists', 'Cardiology', 'Neurology', 'Paediatrics', 'Orthopaedics', 'Dermatology'] as const
+const filterTabs = ['All Specialists', 'Cardiology', 'Neurology', 'Paediatrics', 'Orthopaedics'] as const
 
 export function DoctorsPage() {
   const [activeTab, setActiveTab] = useState<(typeof filterTabs)[number]>('All Specialists')

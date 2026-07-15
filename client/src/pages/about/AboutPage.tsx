@@ -1,4 +1,4 @@
-import { Container } from '../../components/ui/Container'
+﻿import { Container } from '../../components/ui/Container'
 import { PageScaffold } from '../../components/layout/PageScaffold'
 import { siteAssets } from '../../constants/site-assets'
 import {useState } from "react";
@@ -122,27 +122,24 @@ activeSection === 'foundation' && (
           Chairman's Message
         </h3>
 
+        <h6 className="mt-4 font-heading text-2xl font-bold text-cyan-600">
+          G. Bhaskar Rao
+        </h6>
+
+        <p className="mt-1 text-lg font-semibold text-brand-navy">
+          Chairman- Vaidya Vikash Group Of Hospitals
+        </p>
+
         <h6 className="mt-5 text-lg font-bold leading-relaxed text-brand-muted sm:text-xl">
-          “Nothing is important to us today than helping India become a country where advanced healthcare is available for everyone and not just a privileged few.”
+          "Nothing is important to us today than helping India become a country where advanced healthcare is available for everyone and not just a privileged few."
         </h6>
         <p className='mt-4 text-brand-muted'>
-          Our Vision“To become the most reliable hospital for the people of Odisha with a focus on patient care, comfort and adding values through ethical practices and providing the cost effective health care”.
+          Our Vision"To become the most reliable hospital for the people of Odisha with a focus on patient care, comfort and adding values through ethical practices and providing the cost effective health care".
         </p>
 
         <p className='mt-4 text-brand-muted'>
-    Our Mission “To create and provide world class health care within the reach of every individual”
+    Our Mission "To create and provide world class health care within the reach of every individual"
         </p>
-
-
-
-<h6 className="mt-8 font-heading text-2xl font-bold text-cyan-600">
-  G. Bhaskar Rao
-</h6>
-
-<p className="mt-2 text-lg font-semibold text-brand-navy">
-  Chairman- Vaidya Vikash Group Of Hospitals
-</p>
-        
 
       </div>
 
@@ -157,7 +154,7 @@ activeSection === 'foundation' && (
 
       
 
-      <div>
+      <div className="order-2 lg:order-1">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-green">
         Hospital Leadership
         </p>
@@ -165,6 +162,18 @@ activeSection === 'foundation' && (
         <h3 className="mt-3 font-heading text-2xl font-bold text-brand-navy sm:text-3xl">
           Guiding Our Vision
         </h3>
+
+        <h6 className="mt-4 font-heading text-2xl font-bold text-cyan-600">
+          Dr. Umapathi Naidu
+        </h6>
+
+        <p className="mt-1 text-lg font-semibold text-brand-navy">
+          MBBS, MHSM, DBA
+        </p>
+
+        <p className="mt-1 text-lg font-semibold text-brand-navy">
+          Unit Head- Vaidya Vikash Hospital, Sambalpur
+        </p>
 
         <p className="mt-5 text-base leading-relaxed text-brand-muted">
           At Vaidya Vikash Hospital, our mission is to deliver accessible,
@@ -188,23 +197,12 @@ activeSection === 'foundation' && (
           improving the quality of life for individuals and families.
         </p> */}
 
-        <h6 className="mt-8 font-heading text-2xl font-bold text-cyan-600">
-          Dr. Umapathi Naidu
-        </h6>
-
-        <p className="mt-2 text-lg font-semibold text-brand-navy">
-          MBBS, MHSM, DBA
-        </p>
-
-        <p className="mt-1 text-lg font-semibold text-brand-navy">
-          Unit Head- Vaidya Vikash Hospital, Sambalpur
-        </p>
       </div>
 
       <img
         src={siteAssets.headofUnit}
         alt="Dr. Umapathi Naidu"
-        className="w-full rounded-3xl object-cover shadow-xl"
+        className="order-1 lg:order-2 h-[400px] w-full rounded-3xl object-cover object-top shadow-xl"
       />
 
     </div>
@@ -218,7 +216,7 @@ activeSection === 'foundation' && (
       <img
         src={siteAssets.dilipkumarpanda}
         alt="Dilip Kumar Panda"
-        className="h-[500px] w-full rounded-3xl object-cover object-top shadow-xl"
+        className="h-[300px] w-full rounded-3xl object-cover object-top shadow-xl"
       />
 
       <div>
@@ -229,6 +227,18 @@ activeSection === 'foundation' && (
         <h3 className="mt-3 font-heading text-2xl font-bold text-brand-navy sm:text-3xl">
           Head of Human Resources
         </h3>
+
+        <h4 className="mt-4 font-heading text-2xl font-bold text-cyan-600">
+          Dilip Kumar Panda
+        </h4>
+
+        <p className="mt-1 text-lg font-semibold text-brand-navy">
+          B.Sc (Hons), M.A, LLB, DLI & PGDPM
+        </p>
+
+        <p className="mt-1 text-lg font-semibold text-brand-navy">
+          Head of Human Resources, Vaidya Vikash Hospital, Sambalpur
+        </p>
 
         <p className="mt-5 text-base leading-relaxed text-brand-muted">
           With more than 35 years of rich experience across the paper,
@@ -253,21 +263,6 @@ activeSection === 'foundation' && (
   of institutions across multiple sectors.
 </p>
 
-        <div className="mt-8">
-          <h4 className="font-heading text-2xl font-bold text-cyan-600">
-            Dilip Kumar Panda
-          </h4>
-
-          <p className="mt-2 text-lg font-semibold text-brand-navy">
-            B.Sc (Hons), M.A, LLB, DLI & PGDPM
-          </p>
-
-          <p className="mt-1 text-lg font-semibold text-brand-navy">
-            Head of Human Resources, Vaidya Vikash Hospital, Sambalpur
-          </p>
-
-        
-        </div>
       </div>
 
     </div>

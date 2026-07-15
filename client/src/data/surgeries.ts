@@ -1,4 +1,4 @@
-import scrapedData from './surgeries-scraped.json'
+﻿import scrapedData from './surgeries-scraped.json'
 
 import acl from '../assets/surgeries/ACL.png'
 import gastro from '../assets/surgeries/gastro.png'
@@ -17,7 +17,6 @@ export type SurgeryItem = {
 }
 
 type ScrapedPage = {
-  sourceUrl: string
   title: string
   subtitle: string
   slug: string
@@ -28,10 +27,7 @@ type ScrapedPage = {
 }
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Viadya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
-]
+  [/\bVaidya Vikash Hospitals\b/gi, 'Viadya Vikash Hospital'],]
 
 const defaultFAQs = [
   {
@@ -66,7 +62,6 @@ export function getSurgeryBySlug(slug: string | undefined) {
 }
 
 function buildSurgery(page: ScrapedPage): SurgeryItem {
- // console.log(page.slug)
   const name = normalizeText(prettifyTitle(page.title))
   const titleNorm = normalizeText(clean(page.title))
   const overview = sanitizeParagraphs(page.overview, titleNorm)

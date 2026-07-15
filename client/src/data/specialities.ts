@@ -1,4 +1,4 @@
-import scrapedData from './specialities-scraped.json'
+﻿import scrapedData from './specialities-scraped.json'
 import cardiology from '../assets/specialities/cardiology.png'
 import orthopedics from '../assets/specialities/orthopedics.png'
 import oncology from '../assets/specialities/oncology.png'
@@ -32,7 +32,6 @@ export type SpecialityItem = {
 }
 
 type ScrapedPage = {
-  sourceUrl: string
   title: string
   slug: string
   overview: string[]
@@ -148,10 +147,7 @@ const defaultFAQs = [
 ] as const
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
-]
+  [/\bVaidya Vikash Hospitals\b/gi, 'Vaidya Vikash Hospital'],]
 
 export const specialities: SpecialityItem[] = names.map((name) => ({
   ...buildSpeciality(name),
@@ -320,10 +316,7 @@ function isScrapedNoise(text: string) {
   return (
     value.includes('book an appointment in 2 minutes') ||
     value.includes('enquire now') ||
-    value.includes('get a free second opinion') ||
-    value.includes('why choose yashoda') ||
-    value.includes('yashoda group of hospitals')
-  )
+    value.includes('get a free second opinion') )
 }
 
 function buildShortDescription(name: string, firstParagraph?: string) {

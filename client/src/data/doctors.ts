@@ -1,4 +1,4 @@
-// import drVikramMalhotra from '../assets/figma/doctor-vikram-malhotra.png'
+﻿// import drVikramMalhotra from '../assets/figma/doctor-vikram-malhotra.png'
 // import drAnanyaSharma from '../assets/figma/doctor-ananya-sharma.png'
 // import drRajeshVarma from '../assets/figma/doctor-rajesh-varma.png'
 // import drMeeraIyer from '../assets/figma/doctor-meera-iyer.png'
@@ -22,6 +22,8 @@ import dranjankumarpanda from '../assets/figma/doctor-anjan-kumar-panda.png'
 import drshobhagininayak from '../assets/figma/doctor-shobhagini-nayak.png'
 //import drumapathinaidu from '../assets/figma/doctor-umapathi-naidu.png'
 import drrammohan from '../assets/figma/doctor-ram-mohan.png';
+import drsweetykumari from '../assets/figma/doctor-Sweety-Kumari .png'
+import drshrabanee from '../assets/figma/doxtor-Shrabanee-Nanda.png'
 
 
 export type DoctorItem = {
@@ -282,4 +284,26 @@ designation:'Anaesthetist',
     image: dranjankumarpanda,
   },
 
+
+  {
+    id: 'DR.SWEETY KUMARI',
+    name: 'DR. SWEETY KUMARI',
+    qualification: 'MBBS, DGO, MRCOG (London, UK)',
+    speciality: 'Obstetrics & Gynaecology',
+    specialCareServices: 'MANAGEMENT OF NORMAL AND HIGH-RISK PREGNANCIES, SAFE LABOUR AND DELIVERY MANAGEMENT, COMPREHENSIVE ANTENATAL AND POSTNATAL CARE, PCOS AND PRECONCEPTION MANAGEMENT, MANAGEMENT OF COMPLEX GYNAECOLOGICAL CONDITIONS, INFERTILITY EVALUATION AND MANAGEMENT, RECURRENT PREGNANCY FAILURE MANAGEMENT, OVULATION INDUCTION, IUI (INTRAUTERINE INSEMINATION), IVF (IN VITRO FERTILIZATION), MENSTRUAL DISORDERS, PCOS & MENOPAUSE MANAGEMENT, CONTRACEPTION & PREVENTIVE WOMEN\'S HEALTH',
+    designation: 'Chief Consultant Gynaecologist & Medical Superintendent',
+    aboutDoctor: 'Dr. Sweety Kumari is a Chief Consultant Gynaecologist and Medical Superintendent with over 22 years of excellence in Obstetrics and Gynaecology. She holds MBBS, DGO, and MRCOG (London, UK) qualifications and specializes in managing normal and high-risk pregnancies, safe labour and delivery, infertility evaluation, ovulation induction, IUI, IVF, and recurrent pregnancy failure. Her expertise also covers PCOS, menstrual disorders, menopause management, and preventive women\'s health, making her a trusted name in comprehensive women\'s healthcare.',
+    image: drsweetykumari,
+  },
+
+  {
+    id: 'DR.SHRABANEE NANDA',
+    name: 'DR. SHRABANEE NANDA',
+    qualification: 'MDS (OMFS)',
+    speciality: 'Oral & Maxillofacial Surgery',
+    specialCareServices: 'WISDOM TOOTH & IMPACTED TEETH REMOVAL, JAW SURGERY, FACIAL TRAUMA, CLEFT LIP & PALATE SURGERY, TMJ DISORDERS, ORAL PATHOLOGY, FACIAL DEFORMITY CORRECTION',
+    designation: 'Cleft Lip & Palate Surgeon, Maxillofacial Surgeon',
+    aboutDoctor: 'Dr. Shrabanee Nanda is a specialist in Oral and Maxillofacial Surgery with expertise in cleft lip and palate surgery and a wide range of maxillofacial procedures. She is skilled in wisdom tooth and impacted teeth removal, jaw surgery, facial trauma management, TMJ disorder treatment, oral pathology, and facial deformity correction. Her commitment to precision surgical care and patient well-being makes her a valuable expert in oral and facial surgical healthcare.',
+    image: drshrabanee,
+  },
 ]

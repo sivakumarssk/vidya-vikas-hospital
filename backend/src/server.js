@@ -10,7 +10,7 @@ const appointmentRoutes = require("./routes/appointmentRoutes");
 const enquiryRoutes = require("./routes/enquiryRoutes");
 const path = require("path");
 
-dotenv.config();
+dotenv.config({ path: require("path").resolve(__dirname, "../.env") });
 
 connectDB();
 

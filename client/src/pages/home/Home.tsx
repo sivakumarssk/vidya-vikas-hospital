@@ -2,6 +2,7 @@ import { AboutSection } from '../../components/home/AboutSection'
 import { CentersOfExcellenceSection } from '../../components/home/CentersOfExcellenceSection'
 import { HeroSection } from '../../components/home/HeroSection'
 import { InsuranceSection } from '../../components/home/InsuranceSection'
+import { HealthCheckupSection } from '../../components/home/HealthCheckupSection'
 import { LocationsSection } from '../../components/home/LocationsSection'
 import { QuickActionsSection } from '../../components/home/QuickActionsSection'
 import { WhatsNewSection } from '../../components/home/WhatsNewSection'
@@ -205,6 +206,9 @@ const handleSubmit = async (
         </ScrollReveal>
         <ScrollReveal delayMs={110}>
           <InsuranceSection />
+        </ScrollReveal>
+        <ScrollReveal delayMs={120}>
+          <HealthCheckupSection />
         </ScrollReveal>
         <ScrollReveal delayMs={130}>
           <WhatsNewSection />

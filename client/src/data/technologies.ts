@@ -1,4 +1,4 @@
-import scrapedData from './technologies-scraped.json'
+﻿import scrapedData from './technologies-scraped.json'
 import robot from '../assets/robot.png'
 import mri from '../assets/mri.png'
 import brain from '../assets/brain.png'
@@ -18,7 +18,6 @@ export type TechnologyItem = {
 
 
 type ScrapedPage = {
-  sourceUrl: string
   title: string
   subtitle: string
   slug: string
@@ -29,10 +28,7 @@ type ScrapedPage = {
 }
 
 const brandRules: Array<[RegExp, string]> = [
-  [/\bYashoda Hospitals\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda Hospital\b/gi, 'Vaidya Vikash Hospital'],
-  [/\bYashoda\b/gi, 'Vaidya Vikash Hospital'],
-]
+  [/\bVaidya Vikash Hospitals\b/gi, 'Vaidya Vikash Hospital'],]
 
 const defaultFAQs = [
   {
@@ -95,10 +91,8 @@ const technologyImages: Record<string, string> = {
   'yag-pi-peripheral-iridotomy-laser': cancer,
 }
 
-//const defaultTechnologyImage = '/assets/technologies/default.png'
 
 function buildTechnology(page: ScrapedPage): TechnologyItem {
-  //console.log(page.slug)
   const name = normalizeText(shortenTitle(page.title))
   const overview = sanitizeParagraphs(page.overview)
   const keyFeatures = sanitizeFeatures(page.highlights, overview)
@@ -106,7 +100,6 @@ function buildTechnology(page: ScrapedPage): TechnologyItem {
   const shortDescription =
     overview[0] ??
     `Advanced clinical capability at Vaidya Vikash Hospital — ${name} with specialist-led protocols and modern infrastructure.`
-//console.log(page.slug, technologyImages[page.slug])
   return {
   name,
   slug: page.slug,
